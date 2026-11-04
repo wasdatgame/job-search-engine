@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>직무한눈에 | 직무정보 탐색 시제품</title>
+<meta name="description" content="공식 직무정보, 실제 채용공고, 현직자 업무 경험을 구분해 보는 직무정보 탐색 시제품" />
+<style>
+  :root { --ink:#162842; --muted:#64748b; --border:#e2e8f0; --blue:#3457d5; --soft:#f4f7fd; --bg:#f8faff; --navy:#11233d; --violet:#6d57dd; --white:#fff; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); font-family:Pretendard, 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; color:var(--ink); line-height:1.55; }
+  button, input { font:inherit; }
+  button { cursor:pointer; }
+  .top { background:#fff; border-bottom:1px solid var(--border); }
+  .wrap { max-width:1140px; margin:0 auto; padding:0 26px; }
+  .top .wrap { display:flex; align-items:center; justify-content:space-between; min-height:74px; gap:20px; }
+  .brand { display:flex; align-items:center; font-size:20px; letter-spacing:-.7px; font-weight:830; white-space:nowrap; }
+  .brand-icon { display:grid; place-items:center; background:var(--blue); color:white; width:35px; height:35px; border-radius:11px; margin-right:10px; font-size:17px; box-shadow:0 5px 12px #3457d533; }
+  .brand small { font-weight:600; color:#8793a4; font-size:12px; letter-spacing:0; margin:3px 0 0 12px; }
+  .top-right { display:flex; align-items:center; gap:16px; font-size:12px; color:#64748b; }
+  .top-right a { color:var(--ink); text-decoration:none; }
+  .tag { padding:6px 10px; background:#eff3ff; color:#3958bc; border-radius:999px; font-weight:700; font-size:11px; letter-spacing:.02em; }
+  .notice { margin-top:22px; border:1px solid #f4dba3; border-radius:12px; background:#fffbf0; color:#755725; padding:12px 16px; font-size:13px; }
+  .notice b { margin-right:7px; }
+  .hero { padding:66px 0 28px; text-align:center; }
+  .hero .eyebrow { display:inline-block; font-weight:800; font-size:12px; color:#5271d1; letter-spacing:.08em; margin-bottom:14px; }
+  h1 { margin:0; font-size:clamp(32px,4vw,47px); font-weight:850; letter-spacing:-1.9px; line-height:1.26; }
+  .hero p { color:#687b96; font-size:15px; margin:18px 0 30px; }
+  .search { max-width:665px; margin:auto; display:flex; border:1px solid #d8e0f1; background:white; border-radius:16px; padding:7px; box-shadow:0 14px 40px #273c6b12; gap:5px; }
+  .search input { flex:1; min-width:0; padding:14px 17px; border:0; outline:none; color:var(--ink); font-size:17px; }
+  .search button { border:0; background:var(--blue); color:#fff; font-weight:800; border-radius:12px; padding:0 25px; }
+  .search button:hover { background:#2849ba; }
+  .suggest { margin-top:16px; display:flex; justify-content:center; gap:8px; flex-wrap:wrap; align-items:center; }
+  .suggest span { font-size:12px; color:#8190a6; margin-right:2px; }
+  .chip { background:white; border:1px solid #dae3f1; border-radius:999px; padding:7px 12px; color:#627390; font-size:12px; }
+  .chip:hover,.chip.active { border-color:#7291ee; color:#3457d5; background:#f0f4ff; }
+  .feedback { color:#ad4d3d; font-size:12px; margin:10px auto 0; min-height:20px; }
+  .results { padding:20px 0 90px; }
+  .section-top { display:flex; gap:12px; align-items:center; justify-content:space-between; margin:14px 0 20px; }
+  .section-top h2 { font-size:24px; margin:0; letter-spacing:-.7px; }
+  .section-top small { display:block; font-weight:500; color:#7d8b9d; font-size:13px; margin-top:3px; }
+  .result-chip { background:#eaf1ff; color:#2d54aa; border-radius:8px; padding:7px 11px; font-size:12px; font-weight:700; }
+  .source-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+  .panel { background:#fff; border:1px solid #e2e8f2; border-radius:18px; padding:24px; box-shadow:0 8px 25px #223c7010; }
+  .panel-head { display:flex; gap:13px; align-items:flex-start; }
+  .iconbox { width:41px; height:41px; border-radius:12px; display:grid; place-items:center; flex:0 0 auto; font-size:18px; }
+  .indigo { background:#eaf0ff; color:#3a59bc; }
+  .teal { background:#e5f7f6; color:#078076; }
+  .purple { background:#efecff; color:#6753ca; }
+  .panel-title { margin:0; font-size:19px; font-weight:830; letter-spacing:-.4px; }
+  .panel-desc { font-size:12px; color:#8390a0; margin:3px 0 0; }
+  .rule { height:1px; background:#ebeff6; margin:21px 0; }
+  .fieldname { font-size:12px; color:#8794a8; font-weight:750; letter-spacing:.01em; margin-bottom:7px; }
+  .bodyline { margin:0 0 17px; font-size:14px; }
+  .mini-tags { display:flex; flex-wrap:wrap; gap:7px; }
+  .mini-tags span { font-size:12px; color:#4f6283; background:#f4f7fc; border:1px solid #edf0f6; padding:6px 9px; border-radius:7px; }
+  .source-foot { margin-top:19px; padding-top:14px; border-top:1px dashed #dbe3ed; color:#718097; font-size:12px; }
+  .job { border:1px solid #e9eef5; border-radius:11px; padding:13px 14px; margin-bottom:10px; background:#fbfcff; }
+  .job-row { display:flex; align-items:center; justify-content:space-between; gap:8px; }
+  .job strong { font-size:13px; }
+  .job small { color:#8692a3; font-size:11px; }
+  .job p { margin:6px 0 0; font-size:12px; color:#546780; }
+  .ai-panel { margin-top:19px; background:linear-gradient(145deg,#ffffff,#fbfaff); border:1px solid #dad9fc; border-radius:20px; padding:26px; box-shadow:0 12px 34px #4a3e9710; }
+  .ai-head { display:flex; justify-content:space-between; align-items:flex-start; gap:15px; }
+  .ai-head h2 { font-size:22px; margin:0 0 4px; letter-spacing:-.7px; }
+  .ai-head p { font-size:13px; color:#6f7a97; margin:0; }
+  .ai-pill { color:#6250bf; background:#f0ecff; border:1px solid #e3ddff; padding:7px 11px; border-radius:999px; font-size:11px; font-weight:780; white-space:nowrap; }
+  .workflow { display:flex; align-items:center; gap:8px; color:#6a6187; font-size:11px; margin:16px 0 25px; flex-wrap:wrap; }
+  .workflow span { border:1px solid #e5dff7; padding:5px 10px; border-radius:7px; background:#fff; }
+  .ai-grid { display:grid; grid-template-columns:1.1fr 1fr; gap:18px; }
+  .insight { background:#fff; padding:17px 18px; border:1px solid #e8e5f4; border-radius:13px; margin-bottom:11px; }
+  .insight:last-child { margin-bottom:0; }
+  .insight h3 { margin:0 0 9px; font-size:14px; }
+  .insight ul { list-style:none; padding:0; margin:0; }
+  .insight li { font-size:13px; color:#526178; padding:8px 0; border-top:1px solid #f1eff8; }
+  .insight li:first-child { border-top:0; }
+  .evidence { color:#6b56bf; font-weight:700; font-size:11px; white-space:nowrap; margin-left:4px; }
+  .missing { color:#8b5a24; background:#fffaee; border:1px solid #f1e4ca; border-radius:11px; padding:13px 14px; font-size:12px; margin-top:13px; }
+  details { background:#fff; border:1px solid #e8e5f4; border-radius:11px; padding:13px 14px; margin-bottom:9px; }
+  details summary { cursor:pointer; font-weight:750; font-size:12px; }
+  details p { font-size:12px; color:#61718a; margin:9px 0 0; }
+  .source-label { display:inline-block; background:#f0edff; color:#6751bb; border-radius:6px; font-size:10px; padding:2px 7px; margin-right:4px; }
+  .ethic { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:20px; }
+  .ethic div { font-size:12px; background:#f7f6ff; border:1px solid #ece9fd; border-radius:10px; padding:13px; color:#655b89; }
+  .ethic b { display:block; color:#4f438b; margin-bottom:3px; }
+  footer { padding:28px 0 35px; border-top:1px solid #e8edf6; color:#8c99ad; font-size:12px; text-align:center; }
+  @media(max-width:780px){.wrap{padding:0 15px}.top .wrap{min-height:68px}.brand small{display:none}.top-right{gap:7px}.hero{padding-top:42px}.hero p{font-size:13px}.search input{font-size:14px}.search button{padding:0 15px}.source-grid,.ai-grid{grid-template-columns:1fr}.ai-head{flex-direction:column}.ethic{grid-template-columns:1fr}.panel,.ai-panel{padding:18px}.section-top{align-items:flex-start}.section-top h2{font-size:20px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><div class="brand"><span class="brand-icon">▦</span>직무한눈에 <small>JOB INSIGHT</small></div><div class="top-right"><span class="tag">8팀 프로젝트 · MVP 0.1</span><a href="#method">분석 기준</a></div></div></header>
+<main class="wrap">
+  <div class="notice"><b>시연용 화면</b> 현재 표시되는 직무 설명·공고·현직자 발언은 기능 테스트를 위한 <b>가상 예시</b>입니다. 실제 NCS·채용 API·현직자 원자료·AI 분석 결과는 아직 연결되지 않았습니다.</div>
+  <section class="hero">
+    <span class="eyebrow">직무를 이해하는 더 나은 방법</span>
+    <h1>흩어진 직무정보를,<br>한눈에 비교하세요.</h1>
+    <p>공식 직무정보와 채용공고는 원문 그대로.<br>흩어진 현직자 경험만 AI가 근거와 함께 정리합니다.</p>
+    <form id="searchForm" class="search"><input id="searchInput" aria-label="직무 검색" placeholder="관심 있는 직무를 입력하세요" value="품질관리" /><button type="submit">직무 검색 ↗</button></form>
+    <div class="suggest"><span>예시 직무</span><button type="button" class="chip active" data-role="품질관리">품질관리</button><button type="button" class="chip" data-role="데이터 분석">데이터 분석</button><button type="button" class="chip" data-role="마케팅">마케팅</button></div>
+    <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
+  </section>
+  <section class="results" id="results">
+    <div class="section-top"><div><h2><span id="roleTitle">품질관리</span> 직무 살펴보기</h2><small>서로 다른 정보 출처를 구분해 표시합니다.</small></div><span class="result-chip">가상 예시 데이터</span></div>
+    <div class="source-grid">
+      <article class="panel"><div class="panel-head"><div class="iconbox indigo">▤</div><div><h3 class="panel-title">01. 공식 직무정보</h3><p class="panel-desc">국가직무능력표준(NCS) · AI 요약 없음</p></div></div><div class="rule"></div><div class="fieldname">직무 설명 · 예시</div><p class="bodyline" id="officialDescription"></p><div class="fieldname">업무 관련 항목 · 예시</div><div class="mini-tags" id="officialTags"></div><div class="source-foot">출처: <b>NCS API 연결 예정</b> · 이 내용은 공식 원문이 아닌 가상 예시입니다.</div></article>
+      <article class="panel"><div class="panel-head"><div class="iconbox teal">▣</div><div><h3 class="panel-title">02. 기업 채용공고</h3><p class="panel-desc">기업이 직접 적은 담당 업무·요건 · AI 요약 없음</p></div></div><div class="rule"></div><div id="jobs"></div><div class="source-foot">출처: <b>사람인 등 채용정보 연결 예정</b> · 아래 공고는 실제 기업의 공고가 아닌 가상 예시입니다.</div></article>
+    </div>
+    <article class="ai-panel" id="method">
+      <div class="ai-head"><div><h2>03. 현직자의 실제 업무 <span style="color:#6b55d0">· AI 종합</span></h2><p>현직자 인터뷰·커뮤니티 글처럼 형식이 제각각인 자료에만 AI를 활용합니다.</p></div><span class="ai-pill">AI 적용 범위: 현직자 자료만</span></div>
+      <div class="workflow"><span>원문 수집</span> → <span>업무 내용 추출</span> → <span>반복/개별 사례 구분</span> → <span>원문 근거 표시</span></div>
+      <div class="ai-grid">
+        <div><div class="insight"><h3>여러 자료에서 반복된 실제 업무 · 예시</h3><ul id="commonList"></ul></div><div class="insight"><h3>직장·개인별로 다른 업무 · 예시</h3><ul id="variationList"></ul></div><div class="missing"><b>자료만으로 알 수 없는 정보</b><div id="missingContent" style="margin-top:5px"></div></div></div>
+        <div><div class="insight" style="height:100%"><h3>근거가 된 원문 열어보기 · 가상 예시</h3><p style="font-size:12px;color:#7a87a1;margin:-3px 0 13px">AI의 표현이 맞는지 이용자가 직접 대조할 수 있습니다.</p><div id="evidenceList"></div></div></div>
+      </div>
+      <div class="ethic"><div><b>AI가 하지 않는 일</b> 공식 직무정보·채용공고를 AI 의견으로 바꾸지 않음</div><div><b>AI가 해야 하는 일</b> 현직자 경험을 항목별로 묶고 출처와 연결</div><div><b>정보가 없을 때</b> 추정해서 채우지 않고 ‘확인되지 않음’ 표시</div></div>
+    </article>
+  </section>
+</main>
+<footer>8팀 · 디지털 리터러시와 인문적 사고 · 수업 프로젝트 시연용 버전 · 데이터는 모두 가상 예시</footer>
+<script>
+'use strict';
+// 아래 자료는 실제 조사값이 아닌, 화면과 검색 기능을 확인하기 위한 가상 시연 데이터입니다.
+const data = {
+ '품질관리': {
+  aliases:['품질관리','qa','qc','품질보증'],
+  official:'제품과 공정이 정해진 품질 기준에 맞는지 확인하고, 문제를 기록·개선하는 직무라는 예시 설명입니다.',
+  tags:['품질기준 확인','검사 기록','개선 활동'],
+  jobs:[{company:'가상 기업 A',title:'품질관리 담당자',tasks:'제품 검사 결과 관리, 불량 보고서 작성',requirements:'문서 작성 및 기초 통계 활용'},{company:'가상 기업 B',title:'공정 품질 담당자',tasks:'공정 점검, 검사 기준 관리',requirements:'현장 협업 및 데이터 정리'}],
+  worker:[{id:'W1',title:'가상 현직자 메모 A',text:'검사 결과를 정리한 뒤 생산 담당자와 문제를 확인합니다. 불량 내용이 반복되면 원인을 함께 확인합니다.'},{id:'W2',title:'가상 현직자 메모 B',text:'검사 수치를 기록하고 일별 보고서를 작성합니다. 생산팀과 불량 내용을 공유하는 시간이 많습니다.'},{id:'W3',title:'가상 현직자 메모 C',text:'고객 요청이 들어온 날에는 원인 분석 보고를 돕기도 합니다. 현장과 주고받는 문서가 꽤 있습니다.'}],
+  common:[{text:'검사 결과 기록과 보고서 정리',ids:['W1','W2']},{text:'생산부서와 불량 문제 공유',ids:['W1','W2']}],
+  variation:[{text:'고객 요청 대응·원인 분석 보고는 일부 사례에서만 등장',ids:['W3']}],missing:'신입사원의 업무 비중과 하루 업무시간 분포: 이 예시 자료에서는 확인되지 않음'
+ },
+ '데이터 분석': {
+  aliases:['데이터 분석','데이터 분석가','data analyst','데이터 애널리스트'],
+  official:'수집된 데이터를 정리하고 분석해 업무 의사결정에 활용할 수 있도록 지원한다는 예시 설명입니다.',
+  tags:['데이터 처리','지표 해석','결과 보고'],
+  jobs:[{company:'가상 기업 C',title:'데이터 분석 담당자',tasks:'성과 지표 모니터링, 대시보드 관리',requirements:'SQL 및 시각화 도구 기초'},{company:'가상 기업 D',title:'프로덕트 데이터 분석가',tasks:'사용자 행동 분석, 실험 결과 보고',requirements:'문제 정의 및 분석 커뮤니케이션'}],
+  worker:[{id:'W1',title:'가상 현직자 메모 A',text:'새 분석을 하기 전에 요청 내용을 정확하게 다시 묻는 경우가 많습니다. 분석 후에는 팀에 결과를 설명합니다.'},{id:'W2',title:'가상 현직자 메모 B',text:'대시보드 지표를 점검하고 숫자가 이상하면 추출 기준부터 확인합니다. 결과를 다른 팀과 공유합니다.'},{id:'W3',title:'가상 현직자 메모 C',text:'A/B 테스트 결과를 해석하고 개발팀과 개선안을 의논하는 일이 있습니다.'}],
+  common:[{text:'분석 결과를 다른 부서와 공유',ids:['W1','W2']}],variation:[{text:'A/B 테스트 해석은 일부 사례에서만 등장',ids:['W3']},{text:'대시보드 관리 업무는 일부 사례에서만 등장',ids:['W2']}],missing:'신입에게 요구되는 실무 수준·산업별 업무 비중: 이 예시 자료에서는 확인되지 않음'
+ },
+ '마케팅': {
+  aliases:['마케팅','마케터','그로스 마케팅','growth marketing'],
+  official:'고객과 시장을 이해하고 상품·서비스의 홍보 및 성과 개선을 기획한다는 예시 설명입니다.',
+  tags:['시장 조사','캠페인 기획','성과 분석'],
+  jobs:[{company:'가상 기업 E',title:'콘텐츠 마케터',tasks:'콘텐츠 기획, 채널 운영',requirements:'콘텐츠 제작 경험'},{company:'가상 기업 F',title:'그로스 마케터',tasks:'캠페인 성과 분석, 전환 개선',requirements:'지표 해석 및 광고 집행 경험'}],
+  worker:[{id:'W1',title:'가상 현직자 메모 A',text:'캠페인 지표를 정리하고 디자인 담당자와 소재를 수정합니다.'},{id:'W2',title:'가상 현직자 메모 B',text:'콘텐츠 성과를 살펴보고 다음 주 기획에 반영합니다. 디자인팀과 자주 얘기합니다.'},{id:'W3',title:'가상 현직자 메모 C',text:'상품 출시 시즌에는 광고 계정을 점검하는 시간이 늘어납니다.'}],
+  common:[{text:'캠페인·콘텐츠 성과 확인',ids:['W1','W2']},{text:'디자인 업무 담당자와 협업',ids:['W1','W2']}],variation:[{text:'출시 시즌 광고 운영은 일부 사례에서만 등장',ids:['W3']}],missing:'산업과 팀 규모별 실제 일과·신입 업무: 이 예시 자료에서는 확인되지 않음'
+ }
+};
+const $ = id => document.getElementById(id);
+function el(tag,text,cls){const node=document.createElement(tag);if(text!==undefined)node.textContent=text;if(cls)node.className=cls;return node;}
+function listWithSources(containerId,arr){const ul=$(containerId);ul.replaceChildren();arr.forEach(item=>{const li=el('li');li.append(document.createTextNode(item.text+' '));li.append(el('span','['+item.ids.join(', ')+']','evidence'));ul.append(li);});}
+function render(role){
+ const d=data[role];if(!d)return;
+ $('roleTitle').textContent=role;$('searchInput').value=role;$('officialDescription').textContent=d.official;
+ $('officialTags').replaceChildren(...d.tags.map(x=>el('span',x)));
+ const jobs=$('jobs');jobs.replaceChildren();d.jobs.forEach(j=>{const card=el('div',undefined,'job'),heading=el('div',undefined,'job-row');heading.append(el('strong',j.title),el('small',j.company));card.append(heading,el('p','담당업무: '+j.tasks),el('p','지원요건: '+j.requirements));jobs.append(card);});
+ listWithSources('commonList',d.common);listWithSources('variationList',d.variation);$('missingContent').textContent=d.missing;
+ const evidence=$('evidenceList');evidence.replaceChildren();d.worker.forEach(w=>{const item=document.createElement('details');const summary=document.createElement('summary');summary.append(el('span',w.id,'source-label'),document.createTextNode(w.title));item.append(summary,el('p',w.text));evidence.append(item);});
+ document.querySelectorAll('[data-role]').forEach(c=>c.classList.toggle('active',c.dataset.role===role));$('feedback').textContent='';
+}
+function search(value){const query=value.trim().toLocaleLowerCase('ko');if(!query){$('feedback').textContent='직무명을 입력해 주세요.';return;}const found=Object.entries(data).find(([k,v])=>v.aliases.some(a=>a.toLocaleLowerCase('ko')===query));if(!found){$('feedback').textContent='현재는 품질관리·데이터 분석·마케팅의 가상 예시만 준비되어 있습니다.';return;}render(found[0]);}
+$('searchForm').addEventListener('submit',e=>{e.preventDefault();search($('searchInput').value);});
+document.querySelectorAll('[data-role]').forEach(btn=>btn.addEventListener('click',()=>render(btn.dataset.role)));
+render('품질관리');
+</script>
+</body>
+</html>
