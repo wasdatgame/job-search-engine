@@ -3,252 +3,1147 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="직무한눈에 — 현직자의 실제 업무와 채용공고, NCS 정보를 통해 마케팅 직무 사례를 비교하세요.">
+<meta name="description" content="직무한눈에 - 직무 이해부터 실제 업무, 필요 역량, 채용정보와 취업 준비까지 한곳에서.">
 <meta name="theme-color" content="#ffffff">
-<title>직무한눈에 | 마케팅 직무 비교</title>
+
+<title>직무한눈에 | JOB INSIGHT</title>
 
 <style>
 :root{
-  --bg:#f7f9fd;
-  --surface:#fff;
+  --bg:#f6f8fc;
+  --surface:#ffffff;
   --ink:#182b47;
-  --muted:#63748d;
-  --line:#e1e8f2;
+  --muted:#64748b;
+  --line:#dfe7f1;
   --blue:#3156c9;
   --blue-dark:#2346ad;
-  --blue-light:#eef3ff;
-  --purple:#6950aa;
-  --purple-light:#f5f1ff;
-  --green:#0b746b;
+  --blue-light:#edf3ff;
+  --green:#17796c;
   --green-light:#eaf7f3;
-  --orange:#9b6321;
+  --purple:#7355ae;
+  --purple-light:#f4f0ff;
+  --orange:#98601d;
   --orange-light:#fff4e5;
   --shadow:0 8px 28px rgba(33,58,108,.055);
 }
-*,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:20px}
+
+*,*::before,*::after{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:95px;
+}
+
 body{
   margin:0;
-  color:var(--ink);
   background:var(--bg);
-  font:14px/1.7 'Pretendard','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;
-  overflow-wrap:break-word
+  color:var(--ink);
+  font:16px/1.75 'Pretendard','Apple SD Gothic Neo',
+  'Malgun Gothic',system-ui,sans-serif;
+  overflow-wrap:break-word;
 }
-h1,h2,h3,h4,p{margin-top:0}
-button,input{font:inherit}
-button{cursor:pointer}
-a{color:var(--blue);text-decoration:none}
-a:hover{text-decoration:underline}
-:focus-visible{outline:3px solid #91aaf9;outline-offset:3px}
-[hidden]{display:none!important}
-.wrap{width:min(1240px,100%);padding:0 22px;margin:auto}
-.topbar{background:#fff;border-bottom:1px solid var(--line)}
-.topbar-in{min-height:70px;display:flex;justify-content:space-between;align-items:center;gap:16px}
-.logo{display:flex;align-items:center;gap:10px;font-size:20px;letter-spacing:-.7px;font-weight:900;color:var(--ink)}
-.logo-mark{display:grid;place-items:center;width:38px;height:38px;background:var(--blue);color:#fff;border-radius:12px;font-size:20px}
-.logo-sub{font-size:10px;letter-spacing:.04em;color:#8794a9;font-weight:800;margin-left:3px}
-nav{display:flex;gap:22px;align-items:center;font-weight:800;font-size:12px;white-space:nowrap}
-nav a{color:#4d607e}
-nav a:hover{color:var(--blue)}
-.hero{text-align:center;padding:48px 0 27px}
-.eyebrow{font-size:11px;letter-spacing:.17em;color:var(--blue);font-weight:900}
-.hero h1{font-size:clamp(32px,4.4vw,49px);letter-spacing:-1.8px;line-height:1.25;margin:12px 0 15px}
-.hero h1 em{font-style:normal;color:var(--blue)}
-.hero p{font-size:15px;color:var(--muted);margin-bottom:0}
-.search{display:flex;max-width:620px;margin:27px auto 8px;padding:7px;background:var(--surface);border:1px solid #d4e0f2;border-radius:15px;box-shadow:0 12px 30px rgba(37,69,140,.095)}
-.search input{flex:1;min-width:0;border:0;background:transparent;padding:9px 15px;color:var(--ink);outline:none;font-size:15px}
-.btn-primary{border:0;border-radius:10px;background:var(--blue);color:#fff;font-weight:850;padding:11px 19px;white-space:nowrap}
-.btn-primary:hover{background:var(--blue-dark)}
-.search-status{min-height:20px;color:#5d7193;font-size:12px}
-.pills{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-top:9px}
-.pill{border:1px solid var(--line);background:#fff;border-radius:40px;padding:5px 12px;color:#58708d;font-size:11px;font-weight:700;transition:.15s}
-.pill:hover{border-color:var(--blue);color:var(--blue)}
-.pill[aria-pressed="true"]{background:var(--blue-light);border-color:#afc0f1;color:var(--blue)}
-.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:23px 0 33px}
-.stat,.card{background:var(--surface);border:1px solid var(--line);border-radius:17px;box-shadow:var(--shadow)}
-.stat{padding:16px 17px}
-.stat b{display:block;font-size:14px}
-.stat small{display:block;margin-top:2px;color:#7a8aa2;font-size:11px}
-section{scroll-margin-top:18px}
-.heading{display:flex;justify-content:space-between;align-items:start;gap:15px;margin:29px 0 15px}
-.heading h2{font-size:24px;letter-spacing:-.7px;margin:0}
-.heading p{font-size:12px;color:var(--muted);margin:4px 0 0}
-.badge{display:inline-flex;align-items:center;gap:5px;border-radius:7px;background:#eef3ff;color:#3654b0;padding:4px 8px;font-size:11px;font-weight:800;line-height:1.45;white-space:normal}
-.badge.green{background:var(--green-light);color:var(--green)}
-.badge.violet{background:var(--purple-light);color:var(--purple)}
-.badge.gray{background:#f0f3f7;color:#66778b}
-.badge.orange{background:var(--orange-light);color:var(--orange)}
-.card{padding:23px}
-.tabs{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:14px}
-.tabs button{border-radius:10px;border:1px solid #d7e1f1;background:#fff;padding:10px 14px;font-size:13px;font-weight:850;color:#536684}
-.tabs button[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 5px 15px rgba(49,86,201,.16)}
-.compare-intro{display:flex;align-items:start;justify-content:space-between;gap:13px;margin-bottom:16px}
-.compare-intro h3{font-size:20px;letter-spacing:-.4px;margin:0 0 4px}
-.compare-intro p{font-size:13px;color:var(--muted);margin:0;max-width:780px}
-.evidence-legend{display:flex;align-items:center;flex-wrap:wrap;gap:7px 15px;font-size:11px;color:var(--muted);margin:0 0 13px}
-.legend-ai{color:var(--purple);font-weight:800}
-.legend-unknown{color:#758297;font-weight:800}
-.matrix-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--line)}
-.matrix{width:100%;border-collapse:collapse;table-layout:fixed}
-.matrix th,.matrix td{padding:14px 15px;text-align:left;vertical-align:top;border-bottom:1px solid #e8edf5;border-right:1px solid #e8edf5;font-size:12px}
-.matrix tr>*:last-child{border-right:0}
-.matrix tr:last-child>*{border-bottom:0}
-.matrix thead th{background:#eff3fa;color:#405779;font-weight:850}
-.matrix thead th:first-child{width:16%}
-.matrix tbody th{background:#fafcff;color:#556986;width:16%;font-weight:850}
-.matrix td{color:#3e516d}
-.matrix .active-col{background:#f0f5ff}
-.matrix thead .active-col{color:#244db8;background:#e2eaff}
-.case-source{display:block;font-size:10px;font-weight:500;color:var(--muted);margin-top:4px}
-.evidence-tag{display:block;font-size:10px;font-weight:800;margin-bottom:4px}
-.evidence-ai{color:var(--purple)}
-.evidence-unknown,.unknown-text{color:#758297}
-.inline-term{font-size:11px;margin-top:7px;color:var(--muted)}
-.inline-term summary{cursor:pointer;color:var(--blue);font-weight:700}
-.inline-term p{margin:5px 0 0}
-.comparison-mobile{display:none}
-.mobile-role{border:1px solid var(--line);border-radius:13px;padding:15px;background:#fff}
-.mobile-role.active{border-color:#a8bbed;background:#f6f8ff}
-.mobile-role h4{font-size:15px;margin:0 0 3px}
-.mobile-role dl{margin:0}
-.mobile-role dt{font-size:11px;color:#6880a2;font-weight:850;margin-top:10px}
-.mobile-role dd{margin:2px 0 0;font-size:12px}
-.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:17px}
-.detail-card{border:1px solid var(--line);border-radius:12px;padding:17px;background:#fbfcff}
-.detail-card h4{font-size:13px;margin:0 0 6px}
-.detail-card p{font-size:12px;color:#465b79;margin-bottom:10px}
-.detail-card .kicker{font-size:10px;color:#7888a2;font-weight:800;margin-bottom:5px}
-.detail-card .link{font-size:12px}
-.workspace{display:grid;grid-template-columns:minmax(0,1fr) 345px;gap:20px;align-items:start}
-.left{min-width:0}
-.stack{display:grid;gap:14px}
-.interview{background:#fff;border:1px solid #e1e9f3;border-radius:14px;padding:19px;scroll-margin-top:22px}
-.interview.is-current{border-color:#afc0f1;box-shadow:0 0 0 2px rgba(49,86,201,.075)}
-.ibadges{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-bottom:9px}
-.interview h3{font-size:17px;line-height:1.4;letter-spacing:-.2px;margin:0 0 4px}
-.meta{color:#7a8ba3;font-size:11px;margin-bottom:12px}
-.field-row{display:grid;grid-template-columns:108px minmax(0,1fr);gap:8px;padding:10px 0;border-top:1px solid #edf1f7}
-.field-name{font-size:11px;font-weight:900;color:#667e9c}
-.field-text{font-size:12px;color:#405570}
-.advice{border:1px solid #dcebe3;background:#f3faf6;border-radius:10px;padding:12px 14px;margin:11px 0}
-.advice strong{font-size:12px;color:#196c5a;display:block;margin-bottom:4px}
-.advice p{font-size:12px;margin:0;color:#315b4e}
-.actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:10px}
-.link{font-weight:850;font-size:12px}
-.btn-outline{border:1px solid #bfceed;background:#fff;border-radius:9px;padding:8px 11px;font-size:12px;font-weight:850;color:#3154b7}
-.btn-outline:hover{background:#f0f4ff}
-.btn-outline:disabled{opacity:.6;cursor:wait}
-.jobs-filter{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
-.jobs-filter button{padding:8px 12px;background:#fff;border:1px solid #d6e1f0;border-radius:9px;color:#526783;font-size:12px;font-weight:800}
-.jobs-filter button[aria-pressed="true"]{background:#3156c9;border-color:#3156c9;color:#fff}
-.job{border:1px solid #e2e9f3;border-radius:12px;padding:17px;background:#fcfdff}
-.job h3{font-size:15px;margin:9px 0 3px}
-.job p{font-size:12px;color:#485d78;margin:9px 0 0}
-.job .meta{margin:0 0 10px}
-.empty{font-size:12px;background:#f7f9fd;color:#667991;border:1px dashed #d7e1ee;border-radius:10px;padding:16px}
-.insight{position:sticky;top:17px;border-radius:19px;padding:22px;border:1px solid #dcd5f5;background:linear-gradient(155deg,#f4f0ff,#fff 50%,#f0f5ff);box-shadow:0 13px 28px rgba(77,58,145,.08);margin-top:21px}
-.insight-head{display:flex;justify-content:space-between;gap:7px;align-items:start;flex-wrap:wrap}
-.insight h2{font-size:22px;letter-spacing:-.5px;margin:0;color:#44336e}
-.insight>p{color:#6b7694;font-size:12px;margin:7px 0 13px}
-.insight-box{border:1px solid #e6def6;border-radius:12px;background:#fff;padding:15px;margin-top:10px}
-.insight-box h3{font-size:13px;color:#59448a;margin:0 0 6px}
-.insight-box p{margin:0;font-size:12px;color:#475672}
-.insight-box ol{padding-left:19px;margin:5px 0 0;font-size:12px;color:#465672}
-.insight-box li{margin:5px 0}
-.insight-source{margin-top:11px;display:flex;gap:8px;flex-wrap:wrap}
-.insight-source a{font-size:11px;font-weight:800;padding:6px 9px;background:#ece8fb;border-radius:7px;color:#5c4594}
-.api-list{display:grid;gap:11px}
-.api-card{padding:14px 16px;border:1px solid var(--line);background:#fcfdff;border-radius:11px}
-.api-card h3{font-size:14px;margin:6px 0 5px}
-.api-card p{font-size:12px;color:#51637f;margin:7px 0 0}
-.kv{display:flex;gap:7px;align-items:baseline;flex-wrap:wrap;margin-top:5px}
-.kv strong{font-size:11px;color:#687d9d;min-width:57px}
-.kv span{font-size:12px;color:#405570}
-.api-actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:13px}
 
-/* NCS 통합 카드 */
-.ncs-note{
-  margin-top:10px;
-  padding:9px 11px;
-  background:#f0f4fa;
-  border-radius:8px;
-  color:var(--muted);
-  font-size:11px;
+h1,h2,h3,h4,p{
+  margin-top:0;
 }
-.ncs-definition{
-  border-top:1px solid var(--line);
-  padding-top:11px;
-  margin-top:11px;
-}
-.ncs-definition strong{
-  display:block;
-  font-size:11px;
-  color:#687d9d;
-}
-.ncs-definition p{
-  font-size:12px;
-  color:#405570;
-  margin:5px 0 0;
-}
-.ncs-level{
-  display:inline-block;
-  padding:3px 9px;
-  border-radius:6px;
-  background:var(--blue-light);
+
+a{
   color:var(--blue);
+  text-decoration:none;
+}
+
+a:hover{
+  text-decoration:underline;
+}
+
+button,input{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+[hidden]{
+  display:none!important;
+}
+
+:focus-visible{
+  outline:3px solid #91aaf9;
+  outline-offset:4px;
+}
+
+.wrap{
+  width:min(1160px,100%);
+  margin:auto;
+  padding:0 26px;
+}
+
+section{
+  scroll-margin-top:100px;
+}
+
+.topbar{
+  background:#fff;
+  border-bottom:1px solid var(--line);
+}
+
+.topbar-inner{
+  min-height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  color:var(--ink);
+  font-size:23px;
+  font-weight:900;
+  letter-spacing:-.8px;
+}
+
+.logo-mark{
+  width:43px;
+  height:43px;
+  display:grid;
+  place-items:center;
+  background:var(--blue);
+  color:#fff;
+  border-radius:12px;
+  font-size:25px;
+}
+
+.logo-en{
   font-size:11px;
+  color:#8493aa;
+  letter-spacing:.05em;
   font-weight:800;
 }
 
-.glossary{margin:23px 0 0}
-.glossary summary{font-weight:850;cursor:pointer;font-size:14px}
-.terms{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:12px}
-.term{padding:12px;background:#f9fbff;border-radius:10px;border:1px solid #e7edf5}
-.term strong{display:block;font-size:12px}
-.term p{font-size:11px;margin:5px 0 0;color:#617590}
-footer{margin-top:40px;background:#fff;border-top:1px solid var(--line);padding:27px;text-align:center;color:#8090a5;font-size:11px}
+.top-links{
+  display:flex;
+  align-items:center;
+  gap:24px;
+  font-size:14px;
+  font-weight:750;
+}
 
-@media(max-width:1100px){
-  .workspace{grid-template-columns:minmax(0,1fr) 320px}
-  .terms{grid-template-columns:repeat(2,1fr)}
+.top-links a{
+  color:#536580;
 }
+
+.hero{
+  text-align:center;
+  padding:48px 0 28px;
+}
+
+.eyebrow{
+  font-size:12px;
+  color:var(--blue);
+  letter-spacing:.14em;
+  font-weight:850;
+}
+
+.hero h1{
+  font-size:clamp(32px,4.7vw,50px);
+  letter-spacing:-1.8px;
+  line-height:1.3;
+  margin:12px 0 15px;
+}
+
+.hero h1 em{
+  font-style:normal;
+  color:var(--blue);
+}
+
+.hero p{
+  max-width:720px;
+  margin:0 auto;
+  color:var(--muted);
+  font-size:17px;
+}
+
+.card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:17px;
+  padding:23px;
+  box-shadow:var(--shadow);
+}
+
+.job-select{
+  display:flex;
+  align-items:center;
+  gap:17px;
+  max-width:740px;
+  margin:25px auto 28px;
+  padding:19px 23px;
+  text-align:left;
+}
+
+.job-icon{
+  flex:0 0 52px;
+  height:52px;
+  background:var(--blue-light);
+  color:var(--blue);
+  border-radius:13px;
+  display:grid;
+  place-items:center;
+  font-size:25px;
+}
+
+.job-select-text{
+  flex:1;
+}
+
+.job-select-text small{
+  display:block;
+  font-size:12px;
+  color:var(--muted);
+  font-weight:700;
+}
+
+.job-select-text h2{
+  font-size:23px;
+  margin:2px 0;
+  line-height:1.3;
+}
+
+.job-select-text p{
+  margin:0;
+  color:var(--muted);
+  font-size:14px;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  padding:5px 9px;
+  border-radius:7px;
+  background:var(--blue-light);
+  color:var(--blue);
+  font-size:12px;
+  font-weight:800;
+  line-height:1.5;
+}
+
+.badge.green{
+  background:var(--green-light);
+  color:var(--green);
+}
+
+.badge.gray{
+  background:#f0f3f7;
+  color:#66778b;
+}
+
+.badge.orange{
+  background:var(--orange-light);
+  color:var(--orange);
+}
+
+.badge.ai{
+  background:var(--purple-light);
+  color:var(--purple);
+}
+
+.question-heading{
+  margin:10px 0 14px;
+  text-align:center;
+  font-size:23px;
+  letter-spacing:-.6px;
+}
+
+.question-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+  margin-bottom:18px;
+}
+
+.question-card{
+  display:flex;
+  flex-direction:column;
+  padding:22px 20px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:16px;
+  color:var(--ink);
+  transition:.16s;
+  box-shadow:var(--shadow);
+}
+
+.question-card:hover{
+  border-color:#9cb2ec;
+  transform:translateY(-3px);
+  text-decoration:none;
+}
+
+.question-number{
+  font-size:12px;
+  letter-spacing:.1em;
+  font-weight:850;
+  color:var(--blue);
+  margin-bottom:11px;
+}
+
+.question-card h3{
+  font-size:20px;
+  line-height:1.45;
+  letter-spacing:-.6px;
+  margin-bottom:8px;
+}
+
+.question-card p{
+  color:var(--muted);
+  font-size:14px;
+  margin:0 0 19px;
+}
+
+.question-action{
+  margin-top:auto;
+  color:var(--blue);
+  font-weight:800;
+  font-size:14px;
+}
+
+.source-strip{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  gap:8px 18px;
+  font-size:13px;
+  color:var(--muted);
+  padding:10px 0 30px;
+}
+
+.source-strip strong{
+  color:#4e6380;
+}
+
+.section-nav{
+  position:sticky;
+  top:0;
+  z-index:30;
+  background:rgba(255,255,255,.98);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  box-shadow:0 5px 15px rgba(24,43,71,.035);
+}
+
+.section-nav-inner{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  padding-top:9px;
+  padding-bottom:9px;
+}
+
+.section-nav a{
+  flex:1;
+  text-align:center;
+  color:#576b88;
+  padding:9px 8px;
+  border-radius:8px;
+  font-size:14px;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.section-nav a:hover,
+.section-nav a.active{
+  background:var(--blue-light);
+  color:var(--blue);
+  text-decoration:none;
+}
+
+.content{
+  padding-top:10px;
+}
+
+.main-section{
+  margin:48px 0;
+}
+
+.section-heading{
+  margin-bottom:20px;
+}
+
+.section-heading h2{
+  font-size:29px;
+  letter-spacing:-.9px;
+  line-height:1.4;
+  margin:7px 0 7px;
+}
+
+.section-heading p{
+  color:var(--muted);
+  font-size:16px;
+  margin:0;
+}
+
+.subheading{
+  font-size:21px;
+  letter-spacing:-.5px;
+  margin:27px 0 13px;
+}
+
+.lead-card{
+  padding:24px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-left:4px solid var(--blue);
+  border-radius:13px;
+  margin-bottom:17px;
+}
+
+.lead-card h3{
+  font-size:20px;
+  margin-bottom:8px;
+}
+
+.lead-card p{
+  font-size:16px;
+  color:#415673;
+  margin:0;
+}
+
+.lead-card .badge{
+  margin-bottom:9px;
+}
+
+.two-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:15px;
+}
+
+.three-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:15px;
+}
+
+.stack{
+  display:grid;
+  gap:14px;
+}
+
+.info-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:15px;
+  padding:22px;
+}
+
+.info-card h3{
+  font-size:20px;
+  letter-spacing:-.4px;
+  margin:0 0 10px;
+}
+
+.info-card p{
+  color:#425773;
+  margin-bottom:11px;
+  font-size:15px;
+}
+
+.info-card p:last-child{
+  margin-bottom:0;
+}
+
+.meta{
+  color:var(--muted);
+  font-size:13px;
+  margin:0 0 12px;
+}
+
+.role-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-top:4px solid var(--role-color);
+  padding:22px;
+  border-radius:14px;
+}
+
+.role-card.crm{
+  --role-color:#17796c;
+}
+
+.role-card.digital{
+  --role-color:#3156c9;
+}
+
+.role-card.product{
+  --role-color:#7355ae;
+}
+
+.role-card h3{
+  color:var(--role-color);
+  font-size:21px;
+  margin:0 0 8px;
+}
+
+.role-card p{
+  font-size:15px;
+  color:#435773;
+  margin-bottom:12px;
+}
+
+.role-label{
+  display:block;
+  color:var(--muted);
+  font-size:12px;
+  font-weight:800;
+  margin-bottom:5px;
+}
+
+.clean-list{
+  padding-left:20px;
+  margin:9px 0;
+  font-size:15px;
+  color:#425773;
+}
+
+.clean-list li{
+  margin:6px 0;
+}
+
+.refs{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:6px;
+  margin:12px 0 0;
+}
+
+.ref{
+  display:inline-block;
+  padding:4px 8px;
+  background:#edf3ff;
+  color:#3156c9;
+  border-radius:6px;
+  font-size:12px;
+  font-weight:750;
+  line-height:1.5;
+}
+
+.ref:hover{
+  background:#e1eaff;
+}
+
+.evidence-row{
+  display:grid;
+  grid-template-columns:105px minmax(0,1fr);
+  gap:12px;
+  padding:13px 0;
+  border-top:1px solid var(--line);
+}
+
+.evidence-label{
+  color:#5a7293;
+  font-weight:850;
+  font-size:13px;
+}
+
+.evidence-content{
+  color:#405570;
+  font-size:15px;
+}
+
+.evidence-content p{
+  margin:0 0 7px;
+}
+
+.evidence-content .refs{
+  margin-top:7px;
+}
+
+.ai-box{
+  border:1px solid #e3dcf5;
+  background:#f8f6ff;
+  border-radius:10px;
+  padding:15px;
+  margin-top:15px;
+}
+
+.ai-box p{
+  margin:8px 0 0;
+  color:#4b466c;
+  font-size:15px;
+}
+
+details{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:12px;
+  margin-top:13px;
+}
+
+details summary{
+  color:#425c80;
+  font-size:15px;
+  font-weight:800;
+  padding:14px 17px;
+  cursor:pointer;
+}
+
+details[open] summary{
+  border-bottom:1px solid var(--line);
+}
+
+.details-body{
+  padding:17px;
+}
+
+.details-body > :last-child{
+  margin-bottom:0;
+}
+
+.term-inline{
+  margin-top:9px;
+  background:#f9fbff;
+}
+
+.term-inline summary{
+  font-size:13px;
+  color:var(--blue);
+  padding:8px 12px;
+}
+
+.term-inline .details-body{
+  color:var(--muted);
+  font-size:13px;
+  padding:10px 12px;
+}
+
+.flow{
+  display:grid;
+  gap:11px;
+  margin-top:17px;
+}
+
+.flow-item{
+  display:grid;
+  grid-template-columns:66px minmax(0,1fr);
+  gap:14px;
+  align-items:start;
+}
+
+.flow-label{
+  padding:6px 8px;
+  border-radius:7px;
+  background:var(--blue-light);
+  color:var(--blue);
+  font-size:13px;
+  font-weight:850;
+  text-align:center;
+}
+
+.flow-text{
+  font-size:15px;
+  border-bottom:1px solid var(--line);
+  padding:3px 0 12px;
+  color:#405570;
+}
+
+.flow-item:last-child .flow-text{
+  border-bottom:0;
+}
+
+.matrix-wrap{
+  overflow-x:auto;
+  border:1px solid var(--line);
+  border-radius:10px;
+}
+
+.matrix{
+  width:100%;
+  min-width:740px;
+  border-collapse:collapse;
+  table-layout:fixed;
+}
+
+.matrix th,.matrix td{
+  text-align:left;
+  vertical-align:top;
+  padding:14px;
+  font-size:14px;
+  border-bottom:1px solid var(--line);
+  border-right:1px solid var(--line);
+}
+
+.matrix thead th{
+  background:#eff3fa;
+  font-size:15px;
+  color:#405779;
+}
+
+.matrix thead th:first-child{
+  width:17%;
+}
+
+.matrix tbody th{
+  background:#fafcff;
+  color:#536986;
+}
+
+.matrix tr>*:last-child{
+  border-right:0;
+}
+
+.matrix tr:last-child>*{
+  border-bottom:0;
+}
+
+.table-meta{
+  display:block;
+  font-size:12px;
+  font-weight:500;
+  color:var(--muted);
+  margin-top:4px;
+}
+
+.table-ai{
+  display:block;
+  color:var(--purple);
+  font-size:12px;
+  font-weight:800;
+  margin-bottom:4px;
+}
+
+.note{
+  font-size:13px;
+  color:var(--muted);
+  margin:12px 0 0;
+}
+
+.skill-card h3{
+  font-size:21px;
+}
+
+.tool-list{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:13px;
+}
+
+.tool-item{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:17px;
+}
+
+.tool-item h4{
+  font-size:16px;
+  margin:0 0 5px;
+}
+
+.tool-item p{
+  font-size:14px;
+  color:#536984;
+  margin:0;
+}
+
+.api-card{
+  background:#fbfcff;
+  border:1px solid var(--line);
+  padding:18px;
+  border-radius:12px;
+}
+
+.api-card h3{
+  font-size:19px;
+  margin:8px 0;
+}
+
+.api-card p{
+  color:#4a607d;
+  font-size:14px;
+  margin:9px 0;
+}
+
+.api-list{
+  display:grid;
+  gap:12px;
+}
+
+.api-actions{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:11px;
+  margin-bottom:14px;
+}
+
+.api-status{
+  font-size:12px;
+  color:var(--muted);
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff;
+  border:1px solid #c7d6ee;
+  color:var(--blue);
+  border-radius:9px;
+  padding:9px 14px;
+  font-size:14px;
+  font-weight:800;
+}
+
+.btn:hover{
+  background:var(--blue-light);
+  text-decoration:none;
+}
+
+.btn:disabled{
+  opacity:.6;
+  cursor:wait;
+}
+
+.btn-primary{
+  background:var(--blue);
+  border-color:var(--blue);
+  color:white;
+}
+
+.btn-primary:hover{
+  background:var(--blue-dark);
+}
+
+.kv{
+  display:flex;
+  align-items:baseline;
+  flex-wrap:wrap;
+  gap:7px;
+  margin:7px 0;
+  font-size:14px;
+}
+
+.kv strong{
+  font-size:13px;
+  color:#657a98;
+  min-width:65px;
+}
+
+.ncs-level{
+  background:var(--blue-light);
+  color:var(--blue);
+  padding:4px 9px;
+  border-radius:6px;
+  font-size:12px;
+  font-weight:850;
+}
+
+.ncs-definition{
+  padding-top:12px;
+  margin-top:12px;
+  border-top:1px solid var(--line);
+}
+
+.ncs-definition strong{
+  display:block;
+  font-size:13px;
+  color:#657a98;
+}
+
+.ncs-definition p{
+  margin:6px 0;
+}
+
+.job-filters{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:15px 0;
+}
+
+.job-filters button{
+  color:#536986;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:9px;
+  padding:9px 14px;
+  font-size:14px;
+  font-weight:800;
+}
+
+.job-filters button[aria-pressed=true]{
+  background:var(--blue);
+  border-color:var(--blue);
+  color:#fff;
+}
+
+.job-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:22px;
+}
+
+.job-card h3{
+  font-size:20px;
+  margin:10px 0 5px;
+}
+
+.badge-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  align-items:center;
+}
+
+.job-card p{
+  color:#425773;
+  font-size:15px;
+  margin:9px 0;
+}
+
+.job-card .btn{
+  margin-top:12px;
+}
+
+.advice-card{
+  border:1px solid #dbe9e2;
+  background:#f5fbf8;
+  padding:21px;
+  border-radius:13px;
+}
+
+.advice-card h3{
+  font-size:19px;
+  color:#236b5e;
+  margin:0 0 8px;
+}
+
+.advice-card p{
+  font-size:15px;
+  color:#365c50;
+  margin:9px 0;
+}
+
+.task-card{
+  background:#fff;
+  border:1px solid #e3dcf5;
+  border-radius:14px;
+  padding:21px;
+}
+
+.task-card h3{
+  font-size:19px;
+  margin:9px 0;
+}
+
+.task-card p{
+  font-size:14px;
+  color:#52637c;
+}
+
+.task-card ol{
+  font-size:15px;
+  padding-left:20px;
+  margin:10px 0;
+  color:#425773;
+}
+
+.task-card li{
+  margin:6px 0;
+}
+
+.empty{
+  background:#f9fbff;
+  border:1px dashed #d7e1ee;
+  border-radius:10px;
+  padding:17px;
+  color:var(--muted);
+  font-size:14px;
+}
+
+.source-list{
+  display:grid;
+  gap:11px;
+}
+
+.source-entry{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  border:1px solid var(--line);
+  border-radius:11px;
+  padding:16px 18px;
+  background:#fff;
+}
+
+.source-entry h3{
+  font-size:16px;
+  margin:0 0 3px;
+}
+
+.source-entry p{
+  font-size:13px;
+  color:var(--muted);
+  margin:0;
+}
+
+.source-entry .btn{
+  flex-shrink:0;
+}
+
+.source-id{
+  display:inline-block;
+  margin-right:7px;
+  font-size:12px;
+  color:var(--blue);
+  font-weight:850;
+}
+
+.footer{
+  background:#fff;
+  border-top:1px solid var(--line);
+  text-align:center;
+  padding:30px;
+  margin-top:50px;
+  color:var(--muted);
+  font-size:13px;
+}
+
 @media(max-width:900px){
-  .workspace{grid-template-columns:1fr}
-  .insight{position:static;margin-top:0}
-  .stats{grid-template-columns:repeat(2,1fr)}
-  nav{gap:12px}
+  .question-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .three-grid{
+    grid-template-columns:1fr;
+  }
+
+  .top-links{
+    gap:12px;
+    font-size:13px;
+  }
 }
-@media(max-width:700px){
-  .wrap{padding:0 15px}
-  .topbar-in{min-height:62px}
-  nav{display:none}
-  .hero{padding-top:35px}
-  .hero p{font-size:13px}
-  .hero h1{letter-spacing:-1.3px}
-  .heading h2{font-size:21px}
-  .card{padding:16px}
-  .compare-intro{display:block}
-  .compare-intro .badge{margin-top:9px}
-  .matrix-wrap{display:none}
-  .comparison-mobile{display:grid;gap:10px}
-  .detail-grid{grid-template-columns:1fr}
-  .tabs button{font-size:12px;padding:9px 12px}
+
+@media(max-width:650px){
+  .wrap{
+    padding:0 16px;
+  }
+
+  .topbar-inner{
+    min-height:64px;
+  }
+
+  .logo{
+    font-size:20px;
+  }
+
+  .logo-mark{
+    width:37px;
+    height:37px;
+  }
+
+  .top-links{
+    display:none;
+  }
+
+  .hero{
+    padding:34px 0 20px;
+  }
+
+  .hero h1{
+    font-size:32px;
+    letter-spacing:-1.1px;
+  }
+
+  .hero p{
+    font-size:15px;
+  }
+
+  .job-select{
+    padding:15px;
+    gap:10px;
+  }
+
+  .job-select-text p{
+    font-size:13px;
+  }
+
+  .job-select .badge{
+    font-size:11px;
+  }
+
+  .question-card{
+    padding:16px;
+  }
+
+  .question-card h3{
+    font-size:18px;
+  }
+
+  .question-card p{
+    font-size:13px;
+  }
+
+  .question-grid{
+    gap:10px;
+  }
+
+  .section-nav-inner{
+    justify-content:flex-start;
+    overflow-x:auto;
+  }
+
+  .section-nav a{
+    flex:0 0 auto;
+    font-size:13px;
+    padding:8px 12px;
+  }
+
+  .two-grid,.tool-list{
+    grid-template-columns:1fr;
+  }
+
+  .section-heading h2{
+    font-size:25px;
+  }
+
+  .main-section{
+    margin:36px 0;
+  }
+
+  .card,.info-card,.job-card{
+    padding:18px;
+  }
+
+  .evidence-row{
+    grid-template-columns:1fr;
+    gap:4px;
+  }
+
+  .source-entry{
+    flex-wrap:wrap;
+  }
 }
-@media(max-width:500px){
-  .stats{gap:8px}
-  .stat{padding:11px 12px}
-  .stat b{font-size:12px}
-  .stat small{font-size:10px}
-  .search input{font-size:13px;padding:9px}
-  .btn-primary{padding:10px 13px;font-size:12px}
-  .field-row{grid-template-columns:1fr;gap:3px}
-  .terms{grid-template-columns:1fr}
-  .logo{font-size:18px}
-  .logo-sub{font-size:9px}
-  .heading{flex-wrap:wrap}
-}
+
 @media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
+  html{
+    scroll-behavior:auto;
+  }
+
+  .question-card:hover{
+    transform:none;
+  }
 }
 </style>
 </head>
@@ -256,1257 +1151,2318 @@ footer{margin-top:40px;background:#fff;border-top:1px solid var(--line);padding:
 <body>
 
 <header class="topbar">
-  <div class="wrap topbar-in">
-    <a class="logo" href="#top" aria-label="직무한눈에 처음으로">
+  <div class="wrap topbar-inner">
+
+    <a class="logo" href="#top">
       <span class="logo-mark" aria-hidden="true">▦</span>
-      <span>직무한눈에 <span class="logo-sub">JOB INSIGHT</span></span>
+      <span>
+        직무한눈에
+        <span class="logo-en">JOB INSIGHT</span>
+      </span>
     </a>
 
-    <nav aria-label="주요 메뉴">
-      <a href="#comparison">직무 비교</a>
-      <a href="#interviews">현직자 인터뷰</a>
-      <a href="#jobs">채용공고</a>
-      <a href="#ncs">NCS</a>
-      <a href="#youtube">직무 영상</a>
+    <nav class="top-links" aria-label="주요 메뉴">
+      <a href="#overview">직무정보</a>
+      <a href="#career">취업 준비</a>
+      <a href="#sources">자료 출처</a>
     </nav>
+
   </div>
 </header>
 
-<main class="wrap" id="top">
+<!-- 첫 화면 -->
 
-  <section class="hero" aria-labelledby="hero-title">
-    <div class="eyebrow">JOB INSIGHT · MARKETING</div>
+<div class="wrap" id="top">
 
-    <h1 id="hero-title">
-      흩어진 직무정보를,<br>
-      <em>한눈에 비교하세요.</em>
+  <section class="hero">
+
+    <div class="eyebrow">
+      JOB INSIGHT · 직무정보 통합 플랫폼
+    </div>
+
+    <h1>
+      취업 준비에 필요한 직무정보,<br>
+      <em>이제 한곳에서.</em>
     </h1>
 
     <p>
-      현직자의 실제 업무를 중심으로 마케팅 직무의 차이를 비교하고,<br>
-      채용공고와 NCS 공식정보를 함께 참고해 보세요.
+      공식 직무정보부터 실제 채용공고와 현직자의 경험까지.
+      관심 있는 직무를 이해하고 취업 준비 방향을 찾아보세요.
     </p>
 
-    <form class="search" id="search-form">
-      <input id="search-input" type="search" value="마케팅"
-             aria-label="검색할 직무" autocomplete="off">
-      <button class="btn-primary" type="submit">비교하기</button>
-    </form>
-
-    <div class="search-status" id="search-status"
-         role="status" aria-live="polite"></div>
-
-    <div class="pills" aria-label="비교 주제">
-      <button class="pill" type="button" data-track="crm"
-              aria-pressed="true">CRM·고객</button>
-
-      <button class="pill" type="button" data-track="digital"
-              aria-pressed="false">디지털·콘텐츠</button>
-
-      <button class="pill" type="button" data-track="product"
-              aria-pressed="false">제품 마케팅(PM형)</button>
-    </div>
   </section>
 
-  <div class="stats" aria-label="자료 현황">
+  <div class="card job-select">
 
-    <div class="stat">
-      <b>NCS 공식정보</b>
-      <small id="ncs-stat">불러오는 중</small>
+    <div class="job-icon" aria-hidden="true">◎</div>
+
+    <div class="job-select-text">
+
+      <small>관심 직무</small>
+
+      <h2>마케팅</h2>
+
+      <p>
+        고객과 시장을 이해하고 제품과 서비스의 가치를 전달하는 직무
+      </p>
+
     </div>
 
-    <div class="stat">
-      <b>채용공고 사례</b>
-      <small id="job-stat">2건 · 모집일 확인 중</small>
-    </div>
-
-    <div class="stat">
-      <b>현직자 원문</b>
-      <small>3건 · 출처 및 작성 연도 제공</small>
-    </div>
-
-    <div class="stat">
-      <b>유튜브 직무 영상</b>
-      <small id="youtube-stat">불러오는 중</small>
-    </div>
+    <span class="badge green">직무정보 제공</span>
 
   </div>
 
-  <!-- 직무 비교 -->
+  <h2 class="question-heading">
+    어떤 정보가 궁금하신가요?
+  </h2>
 
-  <section id="comparison" aria-labelledby="comparison-heading">
+  <div class="question-grid">
 
-    <div class="heading">
-      <div>
-        <h2 id="comparison-heading">마케팅 직무, 무엇이 다를까?</h2>
+    <a class="question-card" href="#overview">
+
+      <div class="question-number">01 · 직무 이해</div>
+
+      <h3>
+        어떤 일을 하는<br>
+        직무인가요?
+      </h3>
+
+      <p>
+        마케팅의 정의와 세부 업무
+      </p>
+
+      <span class="question-action">직무 이해하기 →</span>
+
+    </a>
+
+    <a class="question-card" href="#practice">
+
+      <div class="question-number">02 · 실제 업무</div>
+
+      <h3>
+        실제로 어떻게<br>
+        일하나요?
+      </h3>
+
+      <p>
+        현직자의 하루와 실무 경험
+      </p>
+
+      <span class="question-action">실제 업무 보기 →</span>
+
+    </a>
+
+    <a class="question-card" href="#skills">
+
+      <div class="question-number">03 · 필요 역량</div>
+
+      <h3>
+        어떤 능력이<br>
+        필요한가요?
+      </h3>
+
+      <p>
+        요구 역량과 업무 도구
+      </p>
+
+      <span class="question-action">필요 역량 보기 →</span>
+
+    </a>
+
+    <a class="question-card" href="#career">
+
+      <div class="question-number">04 · 취업 준비</div>
+
+      <h3>
+        취업하려면 무엇을<br>
+        준비해야 하나요?
+      </h3>
+
+      <p>
+        채용공고와 현직자 조언
+      </p>
+
+      <span class="question-action">취업 준비하기 →</span>
+
+    </a>
+
+  </div>
+
+  <div class="source-strip">
+
+    <strong>함께 제공하는 정보</strong>
+
+    <span>NCS 공식 직무정보</span>
+    <span>기업 채용공고</span>
+    <span>현직자 인터뷰</span>
+    <span>관련 직무 영상</span>
+
+  </div>
+
+</div>
+
+<!-- 고정 탐색 메뉴 -->
+
+<div class="section-nav">
+
+  <nav class="wrap section-nav-inner"
+       aria-label="직무정보 탐색">
+
+    <a href="#overview" data-nav="overview">
+      직무 이해
+    </a>
+
+    <a href="#practice" data-nav="practice">
+      실제 업무
+    </a>
+
+    <a href="#skills" data-nav="skills">
+      필요 역량
+    </a>
+
+    <a href="#career" data-nav="career">
+      취업 준비
+    </a>
+
+    <a href="#sources" data-nav="sources">
+      자료 출처
+    </a>
+
+  </nav>
+
+</div>
+
+<main class="wrap content">
+
+  <!-- ==================================== -->
+  <!-- 01. 어떤 일을 하는 직무인가 -->
+  <!-- ==================================== -->
+
+  <section class="main-section" id="overview">
+
+    <div class="section-heading">
+
+      <div class="eyebrow">01 · 직무 이해</div>
+
+      <h2>마케팅은 어떤 일을 하는 직무인가요?</h2>
+
+      <p>
+        직무의 목적부터 실제 업무의 종류까지 살펴보세요.
+      </p>
+
+    </div>
+
+    <div class="lead-card">
+
+      <h3>마케팅이란?</h3>
+
+      <p>
+        고객과 시장을 이해하고, 제품과 서비스의 가치를 전달하며,
+        고객의 선택을 이끌어 기업의 목표를 달성하는 활동입니다.
+        광고뿐만 아니라 시장 조사, 상품 전략, 고객 관리,
+        캠페인 운영과 성과 분석도 포함됩니다.
+      </p>
+
+    </div>
+
+    <h3 class="subheading">
+      마케팅에서 수행하는 주요 업무
+    </h3>
+
+    <div class="two-grid">
+
+      <article class="info-card">
+
+        <h3>시장·고객 분석</h3>
+
         <p>
-          현직자 사례를 업무 성격에 따라 비교합니다.
-          B2B/B2C는 기업의 고객 유형을 뜻합니다.
+          소비자의 요구와 구매행동, 시장 트렌드를 파악합니다.
+          누구에게 어떤 제품이나 서비스를 제공할지 결정하는
+          기초가 되는 업무입니다.
         </p>
+
+        <div class="refs">
+
+          <a class="ref" data-ref="I2" href="#I2">
+            KGC인삼공사
+          </a>
+
+          <a class="ref" data-ref="J2" href="#J2">
+            LG생활건강
+          </a>
+
+        </div>
+
+      </article>
+
+      <article class="info-card">
+
+        <h3>마케팅 전략과 상품 기획</h3>
+
+        <p>
+          시장 분석 결과를 활용해 제품의 방향과
+          고객에게 전달할 가치, 마케팅 활동을 기획합니다.
+        </p>
+
+        <div class="refs">
+
+          <a class="ref" data-ref="J2" href="#J2">
+            LG생활건강
+          </a>
+
+          <a class="ref" data-ref="I1" href="#I1">
+            삼성전자 반도체
+          </a>
+
+        </div>
+
+      </article>
+
+      <article class="info-card">
+
+        <h3>광고·콘텐츠·캠페인 운영</h3>
+
+        <p>
+          광고, SNS, 블로그 등 다양한 수단으로
+          고객에게 제품과 서비스를 알리고
+          실제 반응을 분석하여 마케팅 활동을 개선합니다.
+        </p>
+
+        <div class="refs">
+
+          <a class="ref" data-ref="I3" href="#I3">
+            엑티브아이티
+          </a>
+
+          <a class="ref" data-ref="J2" href="#J2">
+            LG생활건강
+          </a>
+
+        </div>
+
+      </article>
+
+      <article class="info-card">
+
+        <h3>고객 관계 관리</h3>
+
+        <p>
+          고객 데이터를 활용하여 고객의 특성을 파악하고,
+          맞춤형 혜택과 캠페인을 통해
+          지속적인 고객 관계를 형성합니다.
+        </p>
+
+        <div class="refs">
+
+          <a class="ref" data-ref="I2" href="#I2">
+            KGC인삼공사
+          </a>
+
+          <a class="ref" data-ref="J1" href="#J1">
+            D&amp;O
+          </a>
+
+        </div>
+
+      </article>
+
+    </div>
+
+    <h3 class="subheading">
+      마케팅의 세부 업무 분야
+    </h3>
+
+    <p class="note" style="margin:0 0 15px">
+      실제 업무는 서로 겹칠 수 있으며,
+      기업과 담당 역할에 따라 업무 범위가 달라집니다.
+    </p>
+
+    <div class="three-grid">
+
+      <article class="role-card crm">
+
+        <span class="role-label">고객 관계 중심</span>
+
+        <h3>CRM 마케팅</h3>
+
+        <p>
+          고객 데이터를 바탕으로 기존 고객과의 관계를
+          유지하고 강화하는 마케팅입니다.
+        </p>
+
+        <ul class="clean-list">
+          <li>고객 구매행동 분석</li>
+          <li>고객 세분화</li>
+          <li>맞춤형 캠페인 기획</li>
+          <li>VIP 고객 프로그램 운영</li>
+        </ul>
+
+        <div class="refs">
+
+          <a class="ref" data-ref="I2" href="#I2">
+            관련 현직자 경험
+          </a>
+
+          <a class="ref" data-ref="J1" href="#J1">
+            관련 채용 사례
+          </a>
+
+        </div>
+
+      </article>
+
+      <article class="role-card digital">
+
+        <span class="role-label">광고·콘텐츠 중심</span>
+
+        <h3>디지털 마케팅</h3>
+
+        <p>
+          온라인 광고와 콘텐츠를 활용하여
+          고객에게 접근하고 성과를 개선하는 업무입니다.
+        </p>
+
+        <ul class="clean-list">
+          <li>광고 및 콘텐츠 제작</li>
+          <li>온라인 캠페인 운영</li>
+          <li>클릭률과 전환율 분석</li>
+          <li>광고 소재 개선</li>
+        </ul>
+
+        <div class="refs">
+
+          <a class="ref" data-ref="I3" href="#I3">
+            관련 현직자 경험
+          </a>
+
+          <a class="ref" data-ref="J2" href="#J2">
+            관련 채용 사례
+          </a>
+
+        </div>
+
+      </article>
+
+      <article class="role-card product">
+
+        <span class="role-label">제품·시장 중심</span>
+
+        <h3>제품 마케팅</h3>
+
+        <p>
+          시장과 고객의 요구를 제품 전략에 연결하는 업무입니다.
+          제품 일정과 고객사 요구를 조율하는 PM형 역할도 있습니다.
+        </p>
+
+        <ul class="clean-list">
+          <li>시장 및 고객 요구 파악</li>
+          <li>제품 전략 자료 분석</li>
+          <li>제품 개발 관련 협의</li>
+          <li>제품 일정 및 이슈 조율</li>
+        </ul>
+
+        <div class="refs">
+
+          <a class="ref" data-ref="I1" href="#I1">
+            관련 현직자 경험
+          </a>
+
+        </div>
+
+      </article>
+
+    </div>
+
+    <details>
+
+      <summary>
+        그 밖의 마케팅 업무 분야
+      </summary>
+
+      <div class="details-body">
+
+        <div class="evidence-row">
+
+          <div class="evidence-label">
+            브랜드 마케팅
+          </div>
+
+          <div class="evidence-content">
+            브랜드의 이미지와 정체성을 관리하고
+            고객이 브랜드를 어떻게 인식할지 전략을 수립하는 업무입니다.
+          </div>
+
+        </div>
+
+        <div class="evidence-row">
+
+          <div class="evidence-label">
+            콘텐츠 마케팅
+          </div>
+
+          <div class="evidence-content">
+            고객에게 유용하거나 흥미로운 콘텐츠를 기획하고 제작하여
+            브랜드와 제품에 대한 관심을 형성하는 업무입니다.
+          </div>
+
+        </div>
+
+        <div class="evidence-row">
+
+          <div class="evidence-label">
+            퍼포먼스 마케팅
+          </div>
+
+          <div class="evidence-content">
+            광고 성과를 수치로 측정하고
+            광고 예산과 소재를 조정하여 목표 행동을 늘리는 업무입니다.
+          </div>
+
+        </div>
+
+        <div class="evidence-row">
+
+          <div class="evidence-label">
+            B2B 마케팅
+          </div>
+
+          <div class="evidence-content">
+            일반 소비자가 아닌 기업 고객을 대상으로
+            제품과 서비스의 가치를 전달하는 마케팅입니다.
+            B2B는 업무 유형과 별개로 고객의 유형을 나타냅니다.
+          </div>
+
+        </div>
+
       </div>
-      <span class="badge green">직무 사례 비교</span>
+
+    </details>
+
+  </section>
+
+  <!-- ==================================== -->
+  <!-- 02. 실제로 어떻게 일하는가 -->
+  <!-- ==================================== -->
+
+  <section class="main-section" id="practice">
+
+    <div class="section-heading">
+
+      <div class="eyebrow">02 · 실제 업무</div>
+
+      <h2>현직자는 실제로 어떻게 일하나요?</h2>
+
+      <p>
+        구체적인 업무 방식과 하루 일과,
+        함께 일하는 사람들, 업무상 어려움을 살펴봅니다.
+      </p>
+
     </div>
 
-    <div class="tabs" aria-label="마케팅 업무 유형">
-      <button type="button" data-track="crm"
-              aria-pressed="true">CRM·고객 마케팅</button>
+    <div class="lead-card">
 
-      <button type="button" data-track="digital"
-              aria-pressed="false">디지털·콘텐츠</button>
+      <span class="badge ai">AI 종합 분석</span>
 
-      <button type="button" data-track="product"
-              aria-pressed="false">제품 마케팅(PM형)</button>
+      <h3>마케팅은 광고를 만드는 일만은 아닙니다.</h3>
+
+      <p>
+        현직자 사례에서는 고객 분석, 캠페인 기획,
+        광고 성과 개선, 제품 개발 일정 조율 등 다양한 업무가 나타납니다.
+        담당 업무에 따라 데이터를 분석하거나,
+        다른 부서 및 고객사와 협의하는 활동도 중요합니다.
+      </p>
+
+      <div class="refs">
+
+        <a class="ref" data-ref="I1" href="#I1">I1</a>
+        <a class="ref" data-ref="I2" href="#I2">I2</a>
+        <a class="ref" data-ref="I3" href="#I3">I3</a>
+
+      </div>
+
     </div>
+
+    <h3 class="subheading">실제 업무 사례</h3>
+
+    <div class="three-grid">
+
+      <article class="info-card">
+
+        <span class="badge green">고객 관리</span>
+
+        <h3 style="margin-top:11px">
+          고객 데이터를 분석하고 캠페인을 기획합니다.
+        </h3>
+
+        <div class="meta">
+          KGC인삼공사 · 오지영 · CRM사업부 · 2020
+        </div>
+
+        <p>
+          고객의 구매행동을 분석하고 고객군별 특성에 따라
+          맞춤형 캠페인과 VIP 프로그램을 운영합니다.
+          대학생 마케팅 서포터즈 운영도 담당했습니다.
+        </p>
+
+        <a class="ref" data-ref="I2" href="#I2">
+          현직자 인터뷰
+        </a>
+
+      </article>
+
+      <article class="info-card">
+
+        <span class="badge green">광고·콘텐츠</span>
+
+        <h3 style="margin-top:11px">
+          광고를 제작하고 결과를 개선합니다.
+        </h3>
+
+        <div class="meta">
+          엑티브아이티 · 김다영 · 마케팅팀 · 2025
+        </div>
+
+        <p>
+          광고 성과를 점검하고 콘텐츠와 광고 소재를 제작합니다.
+          고객의 유입 경로를 분석하고
+          영업팀과 고객 문의를 공유합니다.
+        </p>
+
+        <a class="ref" data-ref="I3" href="#I3">
+          현직자 인터뷰
+        </a>
+
+      </article>
+
+      <article class="info-card">
+
+        <span class="badge green">제품·일정 조율</span>
+
+        <h3 style="margin-top:11px">
+          제품 개발과 고객 요구를 연결합니다.
+        </h3>
+
+        <div class="meta">
+          삼성전자 반도체 · 김경택 · 시스템LSI 마케팅팀 · 2019
+        </div>
+
+        <p>
+          제품의 기획·설계·양산 과정에서 일정과 이슈를 관리합니다.
+          전략 자료를 분석하고
+          개발 부서 및 해외 고객사와 협의합니다.
+        </p>
+
+        <a class="ref" data-ref="I1" href="#I1">
+          현직자 브이로그
+        </a>
+
+      </article>
+
+    </div>
+
+    <h3 class="subheading">
+      마케터의 하루는 어떻게 흘러갈까요?
+    </h3>
 
     <div class="card">
 
-      <div class="compare-intro">
-        <div>
-          <h3 id="track-title"></h3>
-          <p id="track-description"></p>
-        </div>
-        <span class="badge" id="track-label"></span>
+      <h3 style="margin-bottom:5px">
+        디지털 마케터의 하루 일과
+      </h3>
+
+      <div class="meta">
+        엑티브아이티 · 김다영 과장 · 2025년 인터뷰
       </div>
 
-      <div class="evidence-legend">
-        <span>표시 없는 항목: 원문 기반 요약</span>
-        <span class="legend-ai">AI 해석: 원문을 바탕으로 분석</span>
-        <span class="legend-unknown">정보 미확인: 원문 내 직접 언급 미확인</span>
-      </div>
+      <div class="flow">
 
-      <div class="matrix-wrap" role="region"
-           aria-label="마케팅 업무 유형별 비교" tabindex="0">
+        <div class="flow-item">
 
-        <table class="matrix">
-          <thead>
-            <tr>
-              <th scope="col">비교 항목</th>
+          <div class="flow-label">업무 시작</div>
 
-              <th scope="col" data-col="crm">
-                CRM·고객
-                <span class="case-source">KGC인삼공사 사례 · 2020</span>
-              </th>
+          <div class="flow-text">
 
-              <th scope="col" data-col="digital">
-                디지털·콘텐츠
-                <span class="case-source">엑티브아이티 사례 · 2025</span>
-              </th>
+            <strong>전날 광고 성과 확인</strong><br>
 
-              <th scope="col" data-col="product">
-                제품 마케팅(PM형)
-                <span class="case-source">삼성전자 반도체 사례 · 2019</span>
-              </th>
-            </tr>
-          </thead>
+            광고의 클릭률과 전환 등 성과를 살펴봅니다.
 
-          <tbody id="matrix-body"></tbody>
-        </table>
-      </div>
+          </div>
 
-      <div class="comparison-mobile" id="comparison-mobile"
-           aria-label="모바일 직무 비교"></div>
-
-      <div class="detail-grid" aria-label="선택한 직무의 자료 연결">
-
-        <div class="detail-card">
-          <div class="kicker">채용공고에 나타난 업무</div>
-          <h4 id="detail-job-title"></h4>
-          <p id="detail-job"></p>
-          <a class="link" id="detail-job-link" href="#jobs">
-            채용공고 사례 보기 ↗
-          </a>
         </div>
 
-        <div class="detail-card">
-          <div class="kicker">현직자 원문에 나타난 업무</div>
-          <h4 id="detail-interview-title"></h4>
-          <p id="detail-interview"></p>
-          <a class="link" id="detail-interview-link" href="#interviews">
-            현직자 경험 자세히 보기 ↗
-          </a>
+        <div class="flow-item">
+
+          <div class="flow-label">오전</div>
+
+          <div class="flow-text">
+
+            <strong>고객 문의 공유 및 광고 개선</strong><br>
+
+            고객 문의를 영업팀과 공유하고,
+            반응이 낮은 광고 소재를 조정합니다.
+
+          </div>
+
         </div>
 
-        <div class="detail-card" id="related-ncs" hidden>
-          <div class="kicker">NCS 관련 참고 정보</div>
-          <h4 id="related-ncs-title"></h4>
-          <p id="related-ncs-text"></p>
-          <a class="link" href="#ncs">NCS 공식정보 보기 ↗</a>
+        <div class="flow-item">
+
+          <div class="flow-label">업무 중</div>
+
+          <div class="flow-text">
+
+            <strong>콘텐츠 및 광고 소재 제작</strong><br>
+
+            필요한 광고 소재와 마케팅 콘텐츠를 기획하고 제작합니다.
+
+          </div>
+
+        </div>
+
+        <div class="flow-item">
+
+          <div class="flow-label">오후</div>
+
+          <div class="flow-text">
+
+            <strong>고객 유입 경로와 결과 분석</strong><br>
+
+            어떤 경로로 고객이 유입됐는지 확인하고
+            다음 마케팅 활동에 반영합니다.
+
+          </div>
+
         </div>
 
       </div>
-    </div>
-  </section>
 
-  <div class="workspace">
-    <div class="left">
+      <div class="refs">
 
-      <!-- 현직자 인터뷰 -->
+        <a class="ref" data-ref="I3" href="#I3">
+          엑티브아이티 · 하루 일과 원문
+        </a>
 
-      <section id="interviews" aria-labelledby="interviews-heading">
-
-        <div class="heading">
-          <div>
-            <h2 id="interviews-heading">현직자는 실제로 무슨 일을 할까?</h2>
-            <p>업무 내용뿐 아니라 일하는 방식, 커리어 경로, 직접 전한 조언까지 정리했습니다.</p>
-          </div>
-          <span class="badge green">공개 원문 3건</span>
-        </div>
-
-        <div class="stack">
-
-          <!-- KGC인삼공사 -->
-
-          <article class="interview" id="I2" data-interview="crm">
-
-            <div class="ibadges">
-              <span class="badge">CRM·고객</span>
-              <span class="badge gray">기업 채용 인터뷰</span>
-              <span class="badge gray">2020</span>
-            </div>
-
-            <h3>KGC인삼공사 · 오지영</h3>
-            <div class="meta">마케팅실 CRM사업부 · 기업 공식 인터뷰</div>
-
-            <div class="field-row">
-              <div class="field-name">실제 업무</div>
-              <div class="field-text">
-                고객 구매행동 데이터 분석, 고객 세분화 및 타깃 캠페인,
-                VIP 고객 프로그램과 대학생 마케팅 서포터즈 운영
-              </div>
-            </div>
-
-            <div class="field-row">
-              <div class="field-name">업무 흐름</div>
-              <div class="field-text">
-                고객 데이터 분석 → 고객별 요구 파악 → 맞춤형 캠페인 기획 및 실행
-              </div>
-            </div>
-
-            <div class="field-row">
-              <div class="field-name">필요 역량</div>
-              <div class="field-text">
-                차별화된 관점, 기획력, 체계적으로 아이디어를 전달하는 소통능력
-              </div>
-            </div>
-
-            <div class="field-row">
-              <div class="field-name">커리어 경로</div>
-              <div class="field-text">
-                마케팅기획부 입사 → 데이터베이스 마케팅에 관심 → CRM 직무로 이동
-              </div>
-            </div>
-
-            <div class="advice">
-              <strong>현직자가 직접 전한 취업 조언</strong>
-              <p id="crm-advice"></p>
-            </div>
-
-            <div class="actions">
-              <a class="link"
-                 href="https://kgc.co.kr/career/kgc-people/view.do?id=1141"
-                 target="_blank" rel="noopener noreferrer">
-                KGC 인터뷰 원문 ↗
-              </a>
-
-              <button class="btn-outline" type="button"
-                      data-pick-track="crm">비교표에서 보기</button>
-            </div>
-          </article>
-
-          <!-- 엑티브아이티 -->
-
-          <article class="interview" id="I3" data-interview="digital">
-
-            <div class="ibadges">
-              <span class="badge">디지털·콘텐츠</span>
-              <span class="badge gray">취업포털 직무인터뷰</span>
-              <span class="badge gray">2025</span>
-            </div>
-
-            <h3>엑티브아이티 · 김다영</h3>
-            <div class="meta">마케팅팀 과장 · 잡코리아 · B2B 통신서비스 기업</div>
-
-            <div class="field-row">
-              <div class="field-name">실제 업무</div>
-              <div class="field-text">
-                광고 성과 확인, 콘텐츠 및 광고 소재 제작,
-                유입 데이터 분석, 영업팀과 고객 문의 연결
-              </div>
-            </div>
-
-            <div class="field-row">
-              <div class="field-name">하루 일과</div>
-              <div class="field-text">
-                전날 광고 성과 점검 → 고객 문의를 영업팀과 공유 →
-                반응이 낮은 소재 조정 → 오후 유입 경로 및 결과 분석
-              </div>
-            </div>
-
-            <div class="field-row">
-              <div class="field-name">도구·성과</div>
-              <div class="field-text">
-                메타 광고 관리자, 클릭률(CTR), 전환율 등 디지털 광고 지표 활용
-              </div>
-            </div>
-
-            <div class="field-row">
-              <div class="field-name">필요 역량</div>
-              <div class="field-text">
-                관찰력, 실행력, 분석력, 커뮤니케이션 능력
-              </div>
-            </div>
-
-            <div class="field-row">
-              <div class="field-name">업무상 어려움</div>
-              <div class="field-text">
-                콘텐츠 제작에 들인 노력에 비해 실제 시장 반응이
-                기대에 미치지 못하는 경우가 있으며,
-                결과를 바탕으로 빠르게 개선하는 과정이 중요함
-              </div>
-            </div>
-
-            <div class="field-row">
-              <div class="field-name">커리어 경로</div>
-              <div class="field-text">
-                웹디자이너 출신으로 마케팅 업무까지 확장.
-                인터뷰 당시 디자인과 마케팅 업무를 약 50:50으로 병행
-              </div>
-            </div>
-
-            <div class="advice">
-              <strong>현직자가 직접 전한 취업 조언</strong>
-              <p id="digital-advice"></p>
-            </div>
-
-            <div class="actions">
-              <a class="link"
-                 href="https://m.jobkorea.co.kr/Start/Interview/View?FavorCo_Stat=0&amp;Itv_No=22597&amp;Page=1&amp;schCtgr=JMIV0200"
-                 target="_blank" rel="noopener noreferrer">
-                잡코리아 인터뷰 원문 ↗
-              </a>
-
-              <button class="btn-outline" type="button"
-                      data-pick-track="digital">비교표에서 보기</button>
-            </div>
-          </article>
-
-          <!-- 삼성전자 반도체 -->
-
-          <article class="interview" id="I1" data-interview="product">
-
-            <div class="ibadges">
-              <span class="badge">제품 마케팅(PM형)</span>
-              <span class="badge gray">기업 홍보 브이로그</span>
-              <span class="badge gray">2019</span>
-            </div>
-
-            <h3>삼성전자 반도체 · 김경택</h3>
-            <div class="meta">시스템LSI 마케팅팀 · 삼성전자 반도체 뉴스룸</div>
-
-            <div class="field-row">
-              <div class="field-name">실제 업무</div>
-              <div class="field-text">
-                제품 기획·설계·양산 단계의 일정 및 이슈 관리,
-                전략 수립에 필요한 자료 분석, 고객사 협의
-              </div>
-            </div>
-
-            <div class="field-row">
-              <div class="field-name">현장 활동</div>
-              <div class="field-text">
-                응용개발팀과 소통하고 기술 검증 현장을 방문.
-                중국 출장에서는 고객사의 제품 수요와 일정을 파악하고 관련 이슈를 협의
-              </div>
-            </div>
-
-            <div class="field-row">
-              <div class="field-name">협업·협의 대상</div>
-              <div class="field-text">
-                응용개발팀 등 제품 개발 관련 부서, 해외법인 및 해외 고객사
-              </div>
-            </div>
-
-            <div class="field-row">
-              <div class="field-name">
-                업무 특징
-                <span class="evidence-tag evidence-ai">AI 해석</span>
-              </div>
-              <div class="field-text">
-                소비자 대상 광고 제작보다는 제품 개발부터 고객사 대응까지
-                일정을 연결하고 조율하는 역할이 강조됨
-              </div>
-            </div>
-
-            <div class="actions">
-              <a class="link"
-                 href="https://news.samsungsemiconductor.com/kr/%EB%B0%98%EB%8F%84%EC%B2%B4-%EB%B8%8C%EC%9D%B4%EB%A1%9C%EA%B7%B8-ep-8-%EC%82%BC%EC%84%B1%EB%B0%98%EB%8F%84%EC%B2%B4%EC%97%90%EC%84%9C-%EB%AD%90%ED%95%98%EB%82%98-%EB%A7%88%EC%BC%80%ED%8C%85/"
-                 target="_blank" rel="noopener noreferrer">
-                뉴스룸 원문·영상 ↗
-              </a>
-
-              <button class="btn-outline" type="button"
-                      data-pick-track="product">비교표에서 보기</button>
-            </div>
-          </article>
-
-        </div>
-      </section>
-
-      <!-- 채용공고 -->
-
-      <section id="jobs" aria-labelledby="jobs-heading">
-
-        <div class="heading">
-          <div>
-            <h2 id="jobs-heading">실제 기업 채용공고에서는?</h2>
-            <p>담당 업무와 요구 역량을 채용공고 사례로 확인합니다.</p>
-          </div>
-          <span class="badge" id="job-active-label">채용공고 2건</span>
-        </div>
-
-        <div class="jobs-filter" aria-label="채용공고 조건">
-          <button type="button" data-filter="all"
-                  aria-pressed="true">전체 2건</button>
-
-          <button type="button" data-filter="entry"
-                  aria-pressed="false">신입 사례</button>
-
-          <button type="button" data-filter="notpast"
-                  aria-pressed="false">마감일 미도래</button>
-        </div>
-
-        <div class="card stack">
-
-          <article class="job" id="J1"
-                   data-career="experienced" data-deadline="2026-11-27">
-
-            <div class="ibadges">
-              <span class="badge green">공식 채용공고</span>
-              <span class="badge gray">경력 7년 이상</span>
-              <span class="badge" data-deadline-badge></span>
-            </div>
-
-            <h3>D&amp;O · 곤지암리조트 마케팅팀</h3>
-
-            <div class="meta">
-              LG Careers · 브랜드·CRM 마케팅 · 접수 마감일 2026.11.27
-            </div>
-
-            <p>
-              <b>담당 업무</b> · 브랜드·CRM 마케팅,
-              고객 특성 분석, 캠페인 기획 및 실행
-            </p>
-
-            <p>
-              <b>요구 경험</b> · CRM 캠페인,
-              고객 세분화 및 데이터 분석 관련 실무 경험
-            </p>
-
-            <div class="actions">
-              <a class="link"
-                 href="https://careers.lg.com/apply/detail?id=1002379"
-                 target="_blank" rel="noopener noreferrer">원문 확인 ↗</a>
-
-              <button class="btn-outline" type="button"
-                      data-pick-track="crm">비교표에서 보기</button>
-            </div>
-          </article>
-
-          <article class="job" id="J2"
-                   data-career="entry" data-deadline="2026-09-13">
-
-            <div class="ibadges">
-              <span class="badge green">공개 채용공고</span>
-              <span class="badge">신입</span>
-              <span class="badge" data-deadline-badge></span>
-            </div>
-
-            <h3>LG생활건강 · 마케팅(Beauty) 신입</h3>
-
-            <div class="meta">
-              고용24 채용공고 · 2026년 하반기 · 접수 마감일 2026.09.13
-            </div>
-
-            <p>
-              <b>담당 업무</b> · 시장·소비자 분석,
-              신제품 전략, SNS·디지털 캠페인, 유통채널 프로모션
-            </p>
-
-            <p>
-              <b>요구 역량</b> · 뷰티·디지털 마케팅 이해,
-              트렌드 파악, 분석적 사고와 의사소통
-            </p>
-
-            <div class="actions">
-              <a class="link"
-                 href="https://www.work24.go.kr/wk/a/b/1500/empDetailAuthView.do?infoTypeCd=OEW&amp;infoTypeGroup=tb_workinfoopen&amp;wantedAuthNo=176561"
-                 target="_blank" rel="noopener noreferrer">원문 확인 ↗</a>
-
-              <button class="btn-outline" type="button"
-                      data-pick-track="digital">비교표에서 보기</button>
-            </div>
-          </article>
-
-          <div class="empty" id="job-empty" hidden>
-            선택한 조건에 해당하는 채용공고 사례가 없습니다.
-          </div>
-
-        </div>
-      </section>
-
-      <!-- NCS 공식정보 -->
-
-      <section id="ncs" aria-labelledby="ncs-heading">
-
-        <div class="heading">
-          <div>
-            <h2 id="ncs-heading">NCS 공식 직무정보</h2>
-            <p>능력단위 명칭과 직무분류, 수준을 구분해 보여줍니다.</p>
-          </div>
-          <span class="badge" id="ncs-status">조회 중</span>
-        </div>
-
-        <div class="card">
-
-          <div class="api-actions">
-            <button class="btn-outline" id="reload-api" type="button">
-              NCS·유튜브 새로고침
-            </button>
-
-            <a class="link" href="https://www.ncs.go.kr/"
-               target="_blank" rel="noopener noreferrer">
-              NCS 공식 사이트 ↗
-            </a>
-          </div>
-
-          <div class="api-list" id="ncs-list" aria-live="polite">
-            <div class="empty">NCS 정보를 불러오고 있습니다.</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 유튜브 -->
-
-      <section id="youtube" aria-labelledby="youtube-heading">
-
-        <div class="heading">
-          <div>
-            <h2 id="youtube-heading">현직자의 업무를 영상으로</h2>
-            <p>실제 업무와 직무 경험을 다루는 영상을 중심으로 보여줍니다.</p>
-          </div>
-          <span class="badge" id="youtube-status">조회 중</span>
-        </div>
-
-        <div class="card">
-          <div class="api-list" id="youtube-list" aria-live="polite">
-            <div class="empty">관련 영상을 찾고 있습니다.</div>
-          </div>
-        </div>
-      </section>
+      </div>
 
     </div>
 
-    <!-- AI 종합 분석 -->
+    <h3 class="subheading">
+      누구와 함께 일하나요?
+    </h3>
 
-    <aside class="insight" id="insights" aria-labelledby="insights-heading">
+    <div class="two-grid">
 
-      <div class="insight-head">
-        <h2 id="insights-heading">직무 종합 분석</h2>
-        <span class="badge violet">사전 작성 AI 분석</span>
-      </div>
+      <article class="info-card">
 
-      <p id="insight-intro">
-        선택한 직무의 현직자 경험과 준비 방향을 함께 살펴보세요.
+        <h3>영업팀과의 협업</h3>
+
+        <p>
+          엑티브아이티 사례에서는 마케팅 활동으로 유입된
+          고객 문의를 영업팀과 공유합니다.
+          광고를 통한 고객 접점이 실제 영업 활동으로 연결됩니다.
+        </p>
+
+        <div class="refs">
+
+          <a class="ref" data-ref="I3" href="#I3">
+            엑티브아이티
+          </a>
+
+        </div>
+
+      </article>
+
+      <article class="info-card">
+
+        <h3>개발 부서 및 고객사와의 협의</h3>
+
+        <p>
+          삼성전자 반도체 사례에서는 응용개발팀 등 관련 부서와
+          제품 개발 사항을 협의하고,
+          해외 고객사의 요구와 일정을 확인합니다.
+        </p>
+
+        <div class="refs">
+
+          <a class="ref" data-ref="I1" href="#I1">
+            삼성전자 반도체
+          </a>
+
+        </div>
+
+      </article>
+
+    </div>
+
+    <h3 class="subheading">
+      일하면서 어떤 어려움을 겪나요?
+    </h3>
+
+    <div class="card">
+
+      <h3>노력한 만큼 성과가 나타나지 않을 수 있습니다.</h3>
+
+      <p>
+        엑티브아이티 현직자는 콘텐츠 제작에 많은 노력을
+        들였더라도 실제 시장 반응이 기대에 미치지 못할 수 있다고
+        설명했습니다. 고객의 반응을 확인하고
+        지속적으로 개선하는 과정이 중요합니다.
       </p>
 
-      <div class="insight-box">
-        <h3>원문에서 확인된 업무</h3>
-        <p id="insight-fact"></p>
+      <div class="refs">
+
+        <a class="ref" data-ref="I3" href="#I3">
+          엑티브아이티 · 업무상 어려움
+        </a>
+
       </div>
 
-      <div class="insight-box">
-        <h3 id="insight-voice-title">현직자가 직접 전한 취업 조언</h3>
-        <p id="insight-voice"></p>
-      </div>
+      <div class="ai-box">
 
-      <div class="insight-box">
-        <h3>AI가 제안하는 준비 방향</h3>
-        <p id="insight-suggestion"></p>
-      </div>
+        <span class="badge ai">AI 종합 분석</span>
 
-      <div class="insight-box">
-        <h3>직무를 이해하는 핵심 포인트</h3>
-        <span class="evidence-tag evidence-ai">AI 해석</span>
-        <ol id="insight-points"></ol>
-      </div>
+        <p>
+          마케팅에서는 개인이 좋은 아이디어라고 생각하는 것과
+          실제 고객이 반응하는 결과가 다를 수 있습니다.
+          결과를 수용하고 원인을 분석하며
+          다음 업무를 개선하는 태도가 필요할 수 있습니다.
+        </p>
 
-      <div class="insight-source" id="insight-links"></div>
-    </aside>
-
-  </div>
-
-  <!-- 용어 사전 -->
-
-  <details class="card glossary" id="glossary">
-
-    <summary>처음 보는 직무 용어가 있나요? · 용어 설명 펼치기</summary>
-
-    <div class="terms">
-
-      <div class="term">
-        <strong>CRM</strong>
-        <p>고객관계관리. 고객 데이터를 바탕으로 고객과의 관계를 유지하고 강화하는 활동</p>
-      </div>
-
-      <div class="term">
-        <strong>B2B / B2C</strong>
-        <p>기업 고객을 상대하는 사업 / 일반 소비자를 상대하는 사업</p>
-      </div>
-
-      <div class="term">
-        <strong>PM</strong>
-        <p>프로젝트 관리 역할. 이 사례에서는 제품의 단계별 일정과 이슈를 조율하는 업무</p>
-      </div>
-
-      <div class="term">
-        <strong>클릭률(CTR)</strong>
-        <p>광고가 노출된 횟수 중 클릭된 횟수의 비율</p>
-      </div>
-
-      <div class="term">
-        <strong>전환율</strong>
-        <p>방문 또는 클릭 등 기준 행동 중 구매·문의 등 목표 행동으로 이어진 비율</p>
-      </div>
-
-      <div class="term">
-        <strong>NCS 능력단위</strong>
-        <p>국가직무능력표준에서 직무 수행에 필요한 능력을 일정 단위로 정리한 항목</p>
       </div>
 
     </div>
-  </details>
+
+    <!-- 기업별 비교는 보조 기능 -->
+
+    <details id="comparison">
+
+      <summary>
+        기업별 실제 업무를 한눈에 비교하기
+      </summary>
+
+      <div class="details-body">
+
+        <div class="matrix-wrap"
+             role="region"
+             aria-label="기업별 실제 업무 비교"
+             tabindex="0">
+
+          <table class="matrix">
+
+            <thead>
+
+              <tr>
+
+                <th>구분</th>
+
+                <th>
+                  KGC인삼공사
+                  <span class="table-meta">
+                    CRM · 2020
+                  </span>
+                </th>
+
+                <th>
+                  엑티브아이티
+                  <span class="table-meta">
+                    디지털 · 2025
+                  </span>
+                </th>
+
+                <th>
+                  삼성전자 반도체
+                  <span class="table-meta">
+                    제품 마케팅 · 2019
+                  </span>
+                </th>
+
+              </tr>
+
+            </thead>
+
+            <tbody>
+
+              <tr>
+
+                <th>핵심 업무</th>
+
+                <td>
+                  고객 분석, 고객 세분화, 캠페인 및 VIP 관리
+                </td>
+
+                <td>
+                  광고 제작, 성과 분석, 광고 소재 개선
+                </td>
+
+                <td>
+                  제품 일정 관리, 이슈 조율, 고객사 협의
+                </td>
+
+              </tr>
+
+              <tr>
+
+                <th>협업 대상</th>
+
+                <td>구체적인 협업 부서 정보 없음</td>
+
+                <td>영업팀</td>
+
+                <td>응용개발팀 등 제품 개발 관련 부서</td>
+
+              </tr>
+
+              <tr>
+
+                <th>성과·관리 기준</th>
+
+                <td>고객 유지 및 충성도 향상</td>
+
+                <td>클릭률, 전환율, 유입 경로</td>
+
+                <td>제품 단계별 일정 및 개발·양산 이슈</td>
+
+              </tr>
+
+              <tr>
+
+                <th>사용 도구·자료</th>
+
+                <td>고객 구매행동 및 CRM 데이터</td>
+
+                <td>메타 광고 관리자, 광고 성과 데이터</td>
+
+                <td>전략 수립용 기초 데이터</td>
+
+              </tr>
+
+              <tr>
+
+                <th>필요 역량</th>
+
+                <td>기획력, 소통능력, 차별화된 관점</td>
+
+                <td>관찰력, 실행력, 분석력, 커뮤니케이션</td>
+
+                <td>구체적인 역량 정보 없음</td>
+
+              </tr>
+
+              <tr>
+
+                <th>업무상 과제</th>
+
+                <td>
+
+                  <span class="table-ai">AI 해석</span>
+
+                  고객별 요구를 실행 가능한 캠페인으로 구체화
+
+                </td>
+
+                <td>
+                  콘텐츠 제작 노력과 시장 반응의 차이를 개선
+                </td>
+
+                <td>
+
+                  <span class="table-ai">AI 해석</span>
+
+                  여러 부서의 진행 상황과 고객사 요구 조율
+
+                </td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+        <div class="refs">
+
+          <a class="ref" data-ref="I2" href="#I2">I2</a>
+          <a class="ref" data-ref="I3" href="#I3">I3</a>
+          <a class="ref" data-ref="I1" href="#I1">I1</a>
+
+        </div>
+
+      </div>
+
+    </details>
+
+    <!-- 유튜브 관련 직무 영상 -->
+
+    <h3 class="subheading">
+      실제 업무를 영상으로 살펴보기
+    </h3>
+
+    <div class="card">
+
+      <div class="api-actions">
+
+        <button class="btn"
+                type="button"
+                data-reload-api>
+          관련 영상 새로고침
+        </button>
+
+        <span class="api-status"
+              id="youtube-status"
+              role="status">
+          관련 영상 조회 중
+        </span>
+
+      </div>
+
+      <div class="api-list"
+           id="youtube-list"
+           aria-live="polite">
+
+        <div class="empty">
+          관련 직무 영상을 불러오고 있습니다.
+        </div>
+
+      </div>
+
+      <p class="note">
+        영상 제목과 설명을 기준으로 관련 자료를 제공합니다.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ==================================== -->
+  <!-- 03. 어떤 능력이 필요한가 -->
+  <!-- ==================================== -->
+
+  <section class="main-section" id="skills">
+
+    <div class="section-heading">
+
+      <div class="eyebrow">03 · 필요 역량</div>
+
+      <h2>마케팅 직무에는 어떤 능력이 필요한가요?</h2>
+
+      <p>
+        기업이 요구하는 역량과 현직자가 활용하는 능력을
+        함께 살펴보세요.
+      </p>
+
+    </div>
+
+    <div class="lead-card">
+
+      <span class="badge ai">AI 종합 분석</span>
+
+      <h3>데이터 분석, 기획과 실행, 의사소통 능력</h3>
+
+      <p>
+        채용공고와 현직자 사례에서는 시장과 고객을 분석하는 능력,
+        분석 결과를 마케팅 활동으로 연결하는 능력,
+        관련 부서와 소통하는 능력이 나타납니다.
+      </p>
+
+    </div>
+
+    <div class="stack">
+
+      <!-- 데이터 분석 -->
+
+      <article class="card skill-card">
+
+        <h3>01. 데이터 분석 능력</h3>
+
+        <div class="evidence-row">
+
+          <div class="evidence-label">
+            기업의 요구
+          </div>
+
+          <div class="evidence-content">
+
+            <p>
+              D&amp;O의 경력 채용에서는 고객 세분화 및
+              데이터 분석 관련 실무 경험을 요구합니다.
+            </p>
+
+            <p>
+              LG생활건강의 신입 마케팅 사례에서는
+              시장·소비자 분석과 분석적 사고가 나타납니다.
+            </p>
+
+            <div class="refs">
+
+              <a class="ref" data-ref="J1" href="#J1">J1</a>
+              <a class="ref" data-ref="J2" href="#J2">J2</a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="evidence-row">
+
+          <div class="evidence-label">
+            실제 활용
+          </div>
+
+          <div class="evidence-content">
+
+            <p>
+              고객의 구매 데이터를 분석하여 맞춤형 캠페인을 기획하거나,
+              광고 성과 데이터를 분석해 광고 소재를 개선합니다.
+            </p>
+
+            <div class="refs">
+
+              <a class="ref" data-ref="I2" href="#I2">I2</a>
+              <a class="ref" data-ref="I3" href="#I3">I3</a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="ai-box">
+
+          <span class="badge ai">AI 종합 분석</span>
+
+          <p>
+            단순히 수치를 계산하는 것보다
+            데이터를 통해 고객 행동을 이해하고,
+            분석 결과를 다음 의사결정에 활용하는 능력이 중요합니다.
+          </p>
+
+        </div>
+
+      </article>
+
+      <!-- 기획과 실행 -->
+
+      <article class="card skill-card">
+
+        <h3>02. 기획력과 실행력</h3>
+
+        <div class="evidence-row">
+
+          <div class="evidence-label">
+            기업의 요구
+          </div>
+
+          <div class="evidence-content">
+
+            <p>
+              신제품 전략, SNS·디지털 캠페인,
+              프로모션 기획 및 실행 등의 업무가 제시됩니다.
+            </p>
+
+            <div class="refs">
+
+              <a class="ref" data-ref="J1" href="#J1">J1</a>
+              <a class="ref" data-ref="J2" href="#J2">J2</a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="evidence-row">
+
+          <div class="evidence-label">
+            실제 활용
+          </div>
+
+          <div class="evidence-content">
+
+            <p>
+              KGC인삼공사 현직자는 기획력과 차별화된 관점을,
+              엑티브아이티 현직자는 관찰력과 실행력을 강조합니다.
+            </p>
+
+            <div class="refs">
+
+              <a class="ref" data-ref="I2" href="#I2">I2</a>
+              <a class="ref" data-ref="I3" href="#I3">I3</a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="ai-box">
+
+          <span class="badge ai">AI 종합 분석</span>
+
+          <p>
+            새로운 아이디어를 제시하는 것뿐 아니라
+            구체적인 캠페인으로 실행하고
+            결과를 바탕으로 개선하는 경험이 도움이 될 수 있습니다.
+          </p>
+
+        </div>
+
+      </article>
+
+      <!-- 의사소통 -->
+
+      <article class="card skill-card">
+
+        <h3>03. 의사소통과 협업 능력</h3>
+
+        <div class="evidence-row">
+
+          <div class="evidence-label">
+            기업의 요구
+          </div>
+
+          <div class="evidence-content">
+
+            <p>
+              LG생활건강의 마케팅 신입 채용 사례에서는
+              의사소통 능력이 요구 역량에 포함됩니다.
+            </p>
+
+            <div class="refs">
+
+              <a class="ref" data-ref="J2" href="#J2">J2</a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="evidence-row">
+
+          <div class="evidence-label">
+            실제 활용
+          </div>
+
+          <div class="evidence-content">
+
+            <p>
+              영업팀에 고객 문의를 전달하거나,
+              제품 개발 부서 및 고객사와 일정을 협의합니다.
+            </p>
+
+            <div class="refs">
+
+              <a class="ref" data-ref="I3" href="#I3">I3</a>
+              <a class="ref" data-ref="I1" href="#I1">I1</a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="ai-box">
+
+          <span class="badge ai">AI 종합 분석</span>
+
+          <p>
+            마케팅 활동은 여러 부서와 연결되는 경우가 있습니다.
+            분석 결과와 아이디어를 이해하기 쉽게 전달하고,
+            서로 다른 업무 요구를 조율하는 능력이 도움이 됩니다.
+          </p>
+
+        </div>
+
+      </article>
+
+    </div>
+
+    <h3 class="subheading">
+      실무에서 사용하는 도구와 자료
+    </h3>
+
+    <div class="tool-list">
+
+      <article class="tool-item">
+
+        <h4>CRM·고객 구매행동 데이터</h4>
+
+        <p>
+          고객의 구매 특성을 분석하고
+          고객군별 캠페인을 기획하는 데 활용합니다.
+        </p>
+
+        <div class="refs">
+
+          <a class="ref" data-ref="I2" href="#I2">I2</a>
+
+        </div>
+
+      </article>
+
+      <article class="tool-item">
+
+        <h4>메타 광고 관리자</h4>
+
+        <p>
+          온라인 광고의 운영 결과를 살펴보고
+          광고 소재와 캠페인을 관리하는 도구입니다.
+        </p>
+
+        <div class="refs">
+
+          <a class="ref" data-ref="I3" href="#I3">I3</a>
+
+        </div>
+
+      </article>
+
+      <article class="tool-item">
+
+        <h4>광고 성과 및 유입 데이터</h4>
+
+        <p>
+          클릭률, 전환율, 고객 유입 경로를 통해
+          마케팅 활동의 결과를 파악합니다.
+        </p>
+
+        <div class="refs">
+
+          <a class="ref" data-ref="I3" href="#I3">I3</a>
+
+        </div>
+
+      </article>
+
+      <article class="tool-item">
+
+        <h4>제품 전략 수립 자료</h4>
+
+        <p>
+          제품과 시장의 정보를 분석하고
+          제품 개발 일정과 고객사 요구를 조율하는 데 활용합니다.
+        </p>
+
+        <div class="refs">
+
+          <a class="ref" data-ref="I1" href="#I1">I1</a>
+
+        </div>
+
+      </article>
+
+    </div>
+
+    <details>
+
+      <summary>
+        업무에 사용되는 전문 용어 알아보기
+      </summary>
+
+      <div class="details-body">
+
+        <div class="evidence-row">
+
+          <div class="evidence-label">CRM</div>
+
+          <div class="evidence-content">
+            고객관계관리. 고객 데이터를 활용해
+            고객과의 관계를 유지하고 강화하는 활동입니다.
+          </div>
+
+        </div>
+
+        <div class="evidence-row">
+
+          <div class="evidence-label">CTR</div>
+
+          <div class="evidence-content">
+            클릭률. 광고 노출 횟수 대비
+            클릭 횟수의 비율을 의미합니다.
+          </div>
+
+        </div>
+
+        <div class="evidence-row">
+
+          <div class="evidence-label">전환율</div>
+
+          <div class="evidence-content">
+            방문이나 클릭 등의 기준 행동 중
+            구매·문의 등 목표 행동으로 이어진 비율입니다.
+          </div>
+
+        </div>
+
+        <div class="evidence-row">
+
+          <div class="evidence-label">B2B / B2C</div>
+
+          <div class="evidence-content">
+            B2B는 기업 고객을 상대하는 사업,
+            B2C는 일반 소비자를 상대하는 사업을 뜻합니다.
+          </div>
+
+        </div>
+
+        <div class="evidence-row">
+
+          <div class="evidence-label">PM</div>
+
+          <div class="evidence-content">
+            삼성전자 반도체 사례에서는
+            제품 개발 일정과 여러 부서의 업무를
+            연결하고 조율하는 프로젝트 관리 역할을 의미합니다.
+          </div>
+
+        </div>
+
+      </div>
+
+    </details>
+
+    <!-- NCS 공식 직무정보 -->
+
+    <h3 class="subheading">
+      공식 직무능력 기준 살펴보기
+    </h3>
+
+    <div class="card" id="ncs">
+
+      <h3 style="font-size:20px;margin-bottom:7px">
+        NCS 국가직무능력표준
+      </h3>
+
+      <p style="font-size:15px;color:var(--muted)">
+        직무 수행에 필요한 능력과 직무분류를
+        국가직무능력표준의 관련 능력단위를 통해 살펴볼 수 있습니다.
+      </p>
+
+      <div class="api-actions">
+
+        <button class="btn"
+                type="button"
+                data-reload-api>
+          NCS 정보 새로고침
+        </button>
+
+        <a class="btn"
+           href="https://www.ncs.go.kr/"
+           target="_blank"
+           rel="noopener noreferrer">
+          NCS 공식 사이트 ↗
+        </a>
+
+        <span class="api-status"
+              id="ncs-status"
+              role="status">
+          공식정보 조회 중
+        </span>
+
+      </div>
+
+      <div class="api-list"
+           id="ncs-list"
+           aria-live="polite">
+
+        <div class="empty">
+          관련 NCS 정보를 불러오고 있습니다.
+        </div>
+
+      </div>
+
+      <p class="note">
+        NCS 수준은 기업의 실제 채용 자격이나
+        요구 경력과는 구분되는 직무능력 기준입니다.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ==================================== -->
+  <!-- 04. 어떻게 취업하는가 -->
+  <!-- ==================================== -->
+
+  <section class="main-section" id="career">
+
+    <div class="section-heading">
+
+      <div class="eyebrow">04 · 취업 준비</div>
+
+      <h2>마케팅 직무에 취업하려면 무엇을 준비해야 하나요?</h2>
+
+      <p>
+        실제 기업의 채용 조건과 현직자의 경험을 바탕으로
+        취업 준비 방향을 살펴봅니다.
+      </p>
+
+    </div>
+
+    <h3 class="subheading">
+      기업의 실제 채용공고
+    </h3>
+
+    <p class="note" style="margin-top:0">
+      신입 및 경력 채용공고를 통해
+      기업에서 실제로 요구하는 업무와 역량을 확인할 수 있습니다.
+    </p>
+
+    <div class="job-filters"
+         aria-label="채용공고 사례 필터">
+
+      <button type="button"
+              data-job-filter="all"
+              aria-pressed="true">
+        전체 사례
+      </button>
+
+      <button type="button"
+              data-job-filter="entry"
+              aria-pressed="false">
+        신입
+      </button>
+
+      <button type="button"
+              data-job-filter="experienced"
+              aria-pressed="false">
+        경력
+      </button>
+
+      <button type="button"
+              data-job-filter="notpast"
+              aria-pressed="false">
+        마감일 미도래
+      </button>
+
+    </div>
+
+    <div class="stack" id="jobs">
+
+      <!-- 신입 채용공고 우선 표시 -->
+
+      <article class="job-card"
+               data-career="entry"
+               data-deadline="2026-09-13">
+
+        <div class="badge-row">
+
+          <span class="badge green">신입 채용 사례</span>
+
+          <span class="badge gray" data-deadline-status>
+            2026.09.13 마감
+          </span>
+
+        </div>
+
+        <h3>
+          LG생활건강 · 마케팅(Beauty)
+        </h3>
+
+        <div class="meta">
+          고용24 · 2026년 하반기 · 접수 마감일 2026.09.13
+        </div>
+
+        <div class="evidence-row">
+
+          <div class="evidence-label">담당 업무</div>
+
+          <div class="evidence-content">
+            시장·소비자 분석, 신제품 전략,
+            SNS·디지털 캠페인, 유통채널 프로모션
+          </div>
+
+        </div>
+
+        <div class="evidence-row">
+
+          <div class="evidence-label">요구 역량</div>
+
+          <div class="evidence-content">
+            뷰티·디지털 마케팅 이해, 트렌드 파악,
+            분석적 사고와 의사소통
+          </div>
+
+        </div>
+
+        <a class="btn"
+           data-ref="J2"
+           href="#J2">
+          채용공고 원문 보기 ↗
+        </a>
+
+      </article>
+
+      <!-- 경력 채용공고 -->
+
+      <article class="job-card"
+               data-career="experienced"
+               data-deadline="2026-11-27">
+
+        <div class="badge-row">
+
+          <span class="badge">경력 채용 사례</span>
+
+          <span class="badge gray">
+            경력 7년 이상
+          </span>
+
+          <span class="badge gray" data-deadline-status>
+            2026.11.27 마감
+          </span>
+
+        </div>
+
+        <h3>
+          D&amp;O · 곤지암리조트 마케팅팀
+        </h3>
+
+        <div class="meta">
+          LG Careers · 접수 마감일 2026.11.27
+        </div>
+
+        <div class="evidence-row">
+
+          <div class="evidence-label">
+            담당 업무
+          </div>
+
+          <div class="evidence-content">
+            브랜드·CRM 마케팅, 고객 특성 분석,
+            캠페인 기획 및 실행
+          </div>
+
+        </div>
+
+        <div class="evidence-row">
+
+          <div class="evidence-label">
+            요구 경험
+          </div>
+
+          <div class="evidence-content">
+            CRM 캠페인, 고객 세분화 및
+            데이터 분석 관련 실무 경험
+          </div>
+
+        </div>
+
+        <a class="btn"
+           data-ref="J1"
+           href="#J1">
+          채용공고 원문 보기 ↗
+        </a>
+
+        <p class="note">
+          경력직의 업무와 요구 경험을 이해하기 위한 참고 사례입니다.
+        </p>
+
+      </article>
+
+      <div class="empty" id="job-empty" hidden>
+        선택한 조건에 해당하는 등록 공고가 없습니다.
+      </div>
+
+    </div>
+
+    <h3 class="subheading">
+      현직자는 어떻게 마케팅 직무에 진입했나요?
+    </h3>
+
+    <div class="two-grid">
+
+      <article class="info-card">
+
+        <h3>마케팅기획에서 CRM으로</h3>
+
+        <div class="meta">
+          KGC인삼공사 · 오지영
+        </div>
+
+        <div class="flow">
+
+          <div class="flow-item">
+
+            <div class="flow-label">시작</div>
+
+            <div class="flow-text">
+              마케팅기획부 입사
+            </div>
+
+          </div>
+
+          <div class="flow-item">
+
+            <div class="flow-label">관심</div>
+
+            <div class="flow-text">
+              데이터베이스 마케팅에 관심을 가짐
+            </div>
+
+          </div>
+
+          <div class="flow-item">
+
+            <div class="flow-label">이동</div>
+
+            <div class="flow-text">
+              CRM 업무로 직무 확장
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="refs">
+
+          <a class="ref" data-ref="I2" href="#I2">
+            커리어 경험 원문
+          </a>
+
+        </div>
+
+      </article>
+
+      <article class="info-card">
+
+        <h3>웹디자이너에서 마케팅으로</h3>
+
+        <div class="meta">
+          엑티브아이티 · 김다영
+        </div>
+
+        <div class="flow">
+
+          <div class="flow-item">
+
+            <div class="flow-label">시작</div>
+
+            <div class="flow-text">
+              웹디자인 업무 수행
+            </div>
+
+          </div>
+
+          <div class="flow-item">
+
+            <div class="flow-label">확장</div>
+
+            <div class="flow-text">
+              디자인 경험을 바탕으로 마케팅 업무 수행
+            </div>
+
+          </div>
+
+          <div class="flow-item">
+
+            <div class="flow-label">현재</div>
+
+            <div class="flow-text">
+              인터뷰 당시 디자인과 마케팅을 약 50:50으로 병행
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="refs">
+
+          <a class="ref" data-ref="I3" href="#I3">
+            커리어 경험 원문
+          </a>
+
+        </div>
+
+      </article>
+
+    </div>
+
+    <h3 class="subheading">
+      현직자가 전하는 취업 조언
+    </h3>
+
+    <div class="two-grid">
+
+      <article class="advice-card">
+
+        <h3>기업과 브랜드를 이해해 보세요.</h3>
+
+        <div class="meta">
+          KGC인삼공사 · 오지영
+        </div>
+
+        <p>
+          기업과 브랜드를 먼저 이해하고,
+          대학생 마케팅 서포터즈 지니어스와 같은 활동을 통해
+          실제 마케팅 미션과 임직원 멘토링을
+          경험해 볼 것을 추천했습니다.
+        </p>
+
+        <div class="refs">
+
+          <a class="ref" data-ref="I2" href="#I2">
+            현직자 조언
+          </a>
+
+        </div>
+
+      </article>
+
+      <article class="advice-card">
+
+        <h3>직접 콘텐츠를 만들어 보세요.</h3>
+
+        <div class="meta">
+          엑티브아이티 · 김다영
+        </div>
+
+        <p>
+          전공이나 기존 경력에 얽매이지 않고
+          마케팅에 도전하는 것을 권장했습니다.
+          작은 광고나 블로그 콘텐츠를 직접 제작하고,
+          고객 반응을 데이터로 확인해 보는 경험을 강조했습니다.
+        </p>
+
+        <div class="refs">
+
+          <a class="ref" data-ref="I3" href="#I3">
+            현직자 조언
+          </a>
+
+        </div>
+
+      </article>
+
+    </div>
+
+    <h3 class="subheading">
+      지금부터 직접 해볼 수 있는 준비 활동
+    </h3>
+
+    <p class="note" style="margin-top:0">
+      실제 채용공고와 현직자의 업무를 바탕으로 구성한
+      실무 연습 과제입니다.
+    </p>
+
+    <div class="three-grid">
+
+      <article class="task-card">
+
+        <span class="badge ai">AI 제안</span>
+
+        <h3>고객 분석 미니 프로젝트</h3>
+
+        <p>
+          CRM 마케팅의 고객 분석 및 캠페인 기획 업무를
+          연습해 보세요.
+        </p>
+
+        <ol>
+
+          <li>가상의 고객 구매 데이터를 구성합니다.</li>
+
+          <li>고객을 구매 특성에 따라 세 그룹으로 나눕니다.</li>
+
+          <li>고객군별 혜택과 캠페인을 설계합니다.</li>
+
+          <li>캠페인의 성과를 판단할 기준을 정합니다.</li>
+
+        </ol>
+
+        <div class="refs">
+
+          <a class="ref" data-ref="I2" href="#I2">I2</a>
+          <a class="ref" data-ref="J1" href="#J1">J1</a>
+
+        </div>
+
+      </article>
+
+      <article class="task-card">
+
+        <span class="badge ai">AI 제안</span>
+
+        <h3>디지털 광고 기획 프로젝트</h3>
+
+        <p>
+          광고 제작과 성과 분석을 연결하는
+          연습 과제입니다.
+        </p>
+
+        <ol>
+
+          <li>하나의 제품과 목표 고객을 선택합니다.</li>
+
+          <li>광고 소재 또는 콘텐츠를 두 가지 만듭니다.</li>
+
+          <li>클릭률과 전환율의 의미를 정리합니다.</li>
+
+          <li>예상 반응을 비교하고 개선안을 작성합니다.</li>
+
+        </ol>
+
+        <div class="refs">
+
+          <a class="ref" data-ref="I3" href="#I3">I3</a>
+          <a class="ref" data-ref="J2" href="#J2">J2</a>
+
+        </div>
+
+      </article>
+
+      <article class="task-card">
+
+        <span class="badge ai">AI 제안</span>
+
+        <h3>신제품 일정 기획 프로젝트</h3>
+
+        <p>
+          제품 관련 업무와 부서 간 협의를
+          이해하기 위한 연습 과제입니다.
+        </p>
+
+        <ol>
+
+          <li>가상의 신제품을 하나 선정합니다.</li>
+
+          <li>기획부터 출시까지 일정표를 작성합니다.</li>
+
+          <li>개발 지연이나 고객 요구 변경을 가정합니다.</li>
+
+          <li>부서별 협의 및 대응 방안을 작성합니다.</li>
+
+        </ol>
+
+        <div class="refs">
+
+          <a class="ref" data-ref="I1" href="#I1">I1</a>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+  <!-- ==================================== -->
+  <!-- 자료 출처 -->
+  <!-- ==================================== -->
+
+  <section class="main-section" id="sources">
+
+    <div class="section-heading">
+
+      <div class="eyebrow">SOURCE LIBRARY</div>
+
+      <h2>직무정보의 출처</h2>
+
+      <p>
+        더 자세한 업무 설명과 채용 조건은
+        각 자료의 원문에서 확인할 수 있습니다.
+      </p>
+
+    </div>
+
+    <h3 class="subheading">현직자 인터뷰 및 직무 경험</h3>
+
+    <div class="source-list">
+
+      <article class="source-entry" id="I1">
+
+        <div>
+
+          <h3>
+            <span class="source-id">I1</span>
+            삼성전자 반도체 · 김경택
+          </h3>
+
+          <p>
+            삼성전자 반도체 뉴스룸 · 2019년 · 시스템LSI 마케팅
+          </p>
+
+        </div>
+
+        <a class="btn source-original"
+           href="https://news.samsungsemiconductor.com/kr/%EB%B0%98%EB%8F%84%EC%B2%B4-%EB%B8%8C%EC%9D%B4%EB%A1%9C%EA%B7%B8-ep-8-%EC%82%BC%EC%84%B1%EB%B0%98%EB%8F%84%EC%B2%B4%EC%97%90%EC%84%9C-%EB%AD%90%ED%95%98%EB%82%98-%EB%A7%88%EC%BC%80%ED%8C%85/"
+           target="_blank"
+           rel="noopener noreferrer">
+          원문 보기 ↗
+        </a>
+
+      </article>
+
+      <article class="source-entry" id="I2">
+
+        <div>
+
+          <h3>
+            <span class="source-id">I2</span>
+            KGC인삼공사 · 오지영
+          </h3>
+
+          <p>
+            KGC 공식 채용 인터뷰 · 2020년 · CRM사업부
+          </p>
+
+        </div>
+
+        <a class="btn source-original"
+           href="https://kgc.co.kr/career/kgc-people/view.do?id=1141"
+           target="_blank"
+           rel="noopener noreferrer">
+          원문 보기 ↗
+        </a>
+
+      </article>
+
+      <article class="source-entry" id="I3">
+
+        <div>
+
+          <h3>
+            <span class="source-id">I3</span>
+            엑티브아이티 · 김다영
+          </h3>
+
+          <p>
+            잡코리아 직무인터뷰 · 2025년 · 디지털 마케팅
+          </p>
+
+        </div>
+
+        <a class="btn source-original"
+           href="https://m.jobkorea.co.kr/Start/Interview/View?FavorCo_Stat=0&amp;Itv_No=22597&amp;Page=1&amp;schCtgr=JMIV0200"
+           target="_blank"
+           rel="noopener noreferrer">
+          원문 보기 ↗
+        </a>
+
+      </article>
+
+    </div>
+
+    <h3 class="subheading">기업 채용공고</h3>
+
+    <div class="source-list">
+
+      <article class="source-entry" id="J1">
+
+        <div>
+
+          <h3>
+            <span class="source-id">J1</span>
+            D&amp;O · 곤지암리조트 마케팅팀
+          </h3>
+
+          <p>
+            LG Careers · 경력 채용 · 2026.11.27 마감
+          </p>
+
+        </div>
+
+        <a class="btn source-original"
+           href="https://careers.lg.com/apply/detail?id=1002379"
+           target="_blank"
+           rel="noopener noreferrer">
+          원문 보기 ↗
+        </a>
+
+      </article>
+
+      <article class="source-entry" id="J2">
+
+        <div>
+
+          <h3>
+            <span class="source-id">J2</span>
+            LG생활건강 · 마케팅(Beauty)
+          </h3>
+
+          <p>
+            고용24 · 신입 채용 · 2026.09.13 마감
+          </p>
+
+        </div>
+
+        <a class="btn source-original"
+           href="https://www.work24.go.kr/wk/a/b/1500/empDetailAuthView.do?infoTypeCd=OEW&amp;infoTypeGroup=tb_workinfoopen&amp;wantedAuthNo=176561"
+           target="_blank"
+           rel="noopener noreferrer">
+          원문 보기 ↗
+        </a>
+
+      </article>
+
+    </div>
+
+    <h3 class="subheading">공식정보 및 관련 영상</h3>
+
+    <div class="source-list">
+
+      <article class="source-entry">
+
+        <div>
+
+          <h3>NCS 국가직무능력표준</h3>
+
+          <p>
+            공식 직무분류 및 능력단위 정보
+          </p>
+
+        </div>
+
+        <a class="btn"
+           href="https://www.ncs.go.kr/"
+           target="_blank"
+           rel="noopener noreferrer">
+          공식 사이트 ↗
+        </a>
+
+      </article>
+
+      <article class="source-entry">
+
+        <div>
+
+          <h3>유튜브 직무 영상</h3>
+
+          <p>
+            마케팅 실무와 현직자 경험 관련 영상
+          </p>
+
+        </div>
+
+        <a class="btn"
+           href="#practice">
+          관련 영상 보기
+        </a>
+
+      </article>
+
+    </div>
+
+  </section>
 
 </main>
 
-<footer>
-  직무한눈에 · JOB INSIGHT · 마케팅 직무 비교
-  <br>
-  각 자료의 원문 링크에서 자세한 내용을 확인할 수 있습니다.
-</footer>
+<footer class="footer">
 
-<noscript>
-  <div class="wrap">
-    직무 비교와 API 기능을 사용하려면 브라우저의 JavaScript를 활성화해 주세요.
-  </div>
-</noscript>
+  <strong>직무한눈에 · JOB INSIGHT</strong>
+
+  <br>
+
+  직무 이해부터 취업 준비까지, 필요한 정보를 한곳에서.
+
+</footer>
 
 <script>
 'use strict';
 
-// 기존 Cloudflare Worker API 유지
+// =====================================
+// 기본 설정
+// =====================================
 
 const API_ROOT =
   'https://job-insight-api.gamingwasd12.workers.dev';
 
+const CACHE_KEY = 'job-insight-marketing-api-v1';
+
 const $ = id => document.getElementById(id);
 
-const el = (tag, cls, content) => {
-  const n = document.createElement(tag);
-  if (cls) n.className = cls;
-  if (content !== undefined) n.textContent = String(content);
-  return n;
-};
+function el(tag, className, content){
 
-const reset = node => node.replaceChildren();
+  const node = document.createElement(tag);
 
-const showMessage = (node, message) => {
-  reset(node);
-  node.append(el('div', 'empty', message));
-};
-
-// 비교표 6개 항목
-
-const fields = [
-  ['업무 핵심', 'work'],
-  ['주로 협업하는 대상', 'collab'],
-  ['성과·관리 기준', 'metric'],
-  ['사용 도구·자료', 'tools'],
-  ['필요 역량', 'skills'],
-  ['업무상 과제', 'challenge']
-];
-
-// 인터뷰 카드 및 AI 종합 분석 공통 조언
-
-const crmAdvice =
-  '기업과 브랜드를 먼저 이해하고, 대학생 마케팅 서포터즈 지니어스 같은 활동을 통해 실제 마케팅 미션과 임직원 멘토링을 경험해 볼 것을 추천했습니다.';
-
-const digitalAdvice =
-  '전공이나 기존 경력에 얽매이지 않고 마케팅에 도전하며, 작은 광고나 블로그 콘텐츠라도 직접 제작해 보는 것을 권장했습니다. 고객의 반응을 데이터로 확인하고 개선하는 경험이 중요하다고 설명했습니다.';
-
-// PC 및 모바일 공통 직무 데이터
-
-const tracks = {
-
-  crm: {
-    title:'CRM·고객 마케팅',
-    source:'KGC인삼공사 사례 · 2020',
-
-    desc:'고객 데이터를 분석하고 고객 집단에 맞는 캠페인을 설계하는 업무입니다.',
-
-    tag:'고객 관계 중심',
-
-    work:'구매행동 분석 · 고객 세분화 · 맞춤 캠페인 · VIP 관리',
-
-    collab:'구체적인 협업 부서는 원문 내 직접 언급 미확인',
-
-    metric:'고객 유지 및 충성도 향상',
-
-    tools:'고객 구매행동 데이터 · CRM 데이터',
-
-    skills:'기획력 · 소통능력 · 차별화된 관점',
-
-    challenge:'고객별 요구를 파악하고 실행 가능한 캠페인으로 구체화',
-
-    evidence:{
-      work:'source',
-      collab:'unknown',
-      metric:'source',
-      tools:'source',
-      skills:'source',
-      challenge:'ai'
-    },
-
-    jobId:'J1',
-    jobTitle:'D&O · 곤지암리조트',
-    job:'고객 특성 분석과 CRM 캠페인 실무 경험을 요구하는 경력 채용공고입니다.',
-
-    interviewId:'I2',
-    interviewTitle:'KGC인삼공사 · 오지영',
-    interview:'구매 데이터를 분석하고 고객군별 캠페인과 VIP 프로그램을 운영하는 경험을 소개합니다.',
-
-    fact:'고객 구매행동 분석, 고객 세분화, 맞춤형 캠페인 및 VIP 프로그램 운영이 현직자 원문에 등장합니다.',
-
-    voiceTitle:'현직자가 직접 전한 취업 조언',
-    voice:crmAdvice,
-
-    suggestion:'가상의 고객 구매 데이터를 세 그룹으로 나누고, 그룹마다 다른 메시지·혜택·성과 지표를 설계한 CRM 캠페인 기획서를 만들어 보세요.',
-
-    points:[
-      '데이터를 읽어 고객의 차이를 발견하기',
-      '고객별 캠페인을 기획하고 실행하기',
-      '활동 후 고객 반응과 관계를 살펴보기'
-    ]
-  },
-
-  digital: {
-    title:'디지털·콘텐츠 마케팅',
-    source:'엑티브아이티 사례 · 2025',
-
-    desc:'콘텐츠를 제작하고 디지털 광고의 성과를 측정하고 개선하는 업무입니다. 이 사례의 회사는 B2B 기업입니다.',
-
-    tag:'콘텐츠와 성과 중심',
-
-    work:'광고 지표 점검 · 콘텐츠 제작 · 광고 소재 개선 · 유입 분석',
-
-    collab:'영업팀',
-
-    metric:'클릭률(CTR) · 전환율 · 유입 경로',
-
-    tools:'메타 광고 관리자 · 광고 성과 및 유입 데이터',
-
-    skills:'관찰력 · 실행력 · 분석력 · 커뮤니케이션',
-
-    challenge:'콘텐츠 제작에 들인 노력과 시장 반응이 일치하지 않을 수 있으며, 결과를 바탕으로 빠르게 개선함',
-
-    evidence:{
-      work:'source',
-      collab:'source',
-      metric:'source',
-      tools:'source',
-      skills:'source',
-      challenge:'source'
-    },
-
-    jobId:'J2',
-    jobTitle:'LG생활건강 · Beauty 마케팅',
-    job:'시장·소비자 분석, SNS·디지털 캠페인, 신제품 전략 역량을 제시한 신입 채용 사례입니다.',
-
-    interviewId:'I3',
-    interviewTitle:'엑티브아이티 · 김다영',
-    interview:'광고 성과 확인부터 소재 수정, 영업팀 협업, 유입 분석까지 실제 하루의 업무 흐름을 설명합니다.',
-
-    fact:'엑티브아이티 사례에서는 광고 성과 점검과 콘텐츠 제작, 유입 분석을 수행하며 디자인과 마케팅 업무를 병행합니다.',
-
-    voiceTitle:'현직자가 직접 전한 취업 조언',
-    voice:digitalAdvice,
-
-    suggestion:'하나의 제품을 골라 타깃 고객을 정하고, 광고 소재 2종을 기획한 뒤 클릭률과 전환율을 기준으로 개선안을 제시해 보세요.',
-
-    points:[
-      '광고 목표와 고객을 정하기',
-      '콘텐츠·광고 소재 제작하기',
-      '성과 지표를 보고 다음 소재 개선하기'
-    ]
-  },
-
-  product: {
-    title:'제품 마케팅(PM형)',
-    source:'삼성전자 반도체 사례 · 2019',
-
-    desc:'이 사례에서는 제품의 기획·설계·양산 과정에서 일정과 고객사 요구를 조율하는 업무를 소개합니다.',
-
-    tag:'제품·일정 조율 중심',
-
-    work:'제품 일정 관리 · 이슈 조정 · 전략 자료 분석 · 해외 고객사 협의',
-
-    collab:'응용개발팀 등 제품 개발 관련 부서',
-
-    metric:'제품 단계별 일정 및 개발·양산 이슈',
-
-    tools:'전략 수립을 위한 기초 데이터',
-
-    skills:'필요 역량에 대한 직접적인 언급 미확인',
-
-    challenge:'여러 부서의 진행 상황과 고객사 일정 및 요구사항을 조율',
-
-    evidence:{
-      work:'source',
-      collab:'source',
-      metric:'source',
-      tools:'source',
-      skills:'unknown',
-      challenge:'ai'
-    },
-
-    // 최종 수정: 실제 등록된 PM형 채용공고 없음
-
-    jobId:null,
-    jobTitle:'등록된 채용공고 사례 없음',
-    job:'제품 마케팅(PM형)은 현재 등록된 현직자 원문을 중심으로 살펴볼 수 있습니다.',
-
-    interviewId:'I1',
-    interviewTitle:'삼성전자 반도체 · 김경택',
-    interview:'제품 기획부터 설계·양산까지 일정을 관리하고, 유관부서 및 해외 고객사와 협의하는 PM 업무를 소개합니다.',
-
-    fact:'삼성전자 반도체 브이로그에는 제품 단계별 일정 및 이슈 관리, 응용개발팀 협의, 중국 고객사 출장이 등장합니다.',
-
-    voiceTitle:'현직자 원문 내용',
-    voice:'제품 개발 단계와 고객사 요구를 연결하는 PM 업무를 소개합니다. 별도의 취업 조언은 확인되지 않았습니다.',
-
-    suggestion:'가상의 신제품 개발 일정표를 만들고, 설계 지연이나 고객 요구 변경 상황을 가정해 부서별 협의 및 대응 방안을 정리해 보세요.',
-
-    points:[
-      '제품 개발 단계와 일정을 파악하기',
-      '개발·양산 이슈를 관련 부서와 조율하기',
-      '고객사의 일정과 요구를 제품 계획에 반영하기'
-    ]
+  if(className){
+    node.className = className;
   }
-};
 
-let currentTrack = 'crm';
-let currentFilter = 'all';
-let relatedNcsItem = null;
+  if(content !== undefined){
+    node.textContent = String(content);
+  }
 
-// 전문 용어
-
-const glossary = {
-  CRM:'고객 데이터를 활용해 고객과의 관계를 유지하고 강화하는 활동입니다.',
-
-  CTR:'광고 노출 횟수 대비 클릭 횟수의 비율입니다.',
-
-  conversion:'방문이나 클릭 등 기준 행동 중 구매·문의 등 목표 행동으로 이어진 비율입니다.',
-
-  PM:'이 사례에서 PM은 제품의 개발 일정과 관련 부서의 업무를 조율하는 프로젝트 관리 역할입니다.'
-};
-
-function makeTerms(title, definitions) {
-  const details = el('details', 'inline-term');
-
-  details.append(el('summary', '', title));
-
-  definitions.forEach(text => {
-    details.append(el('p', '', text));
-  });
-
-  return details;
+  return node;
 }
 
-// 정보의 성격 구분
+function message(root, text){
 
-function renderEvidence(container, track, key) {
-  const status = track.evidence[key];
-
-  if (status === 'ai') {
-    container.append(
-      el('span', 'evidence-tag evidence-ai', 'AI 해석')
-    );
-  }
-
-  if (status === 'unknown') {
-    container.append(
-      el('span', 'evidence-tag evidence-unknown', '정보 미확인')
-    );
-  }
-
-  container.append(
-    el(
-      'span',
-      status === 'unknown' ? 'unknown-text' : '',
-      track[key]
-    )
+  root.replaceChildren(
+    el('div', 'empty', text)
   );
 
-  if (track === tracks.crm && key === 'tools') {
-    container.append(
-      makeTerms('CRM 용어 설명', [glossary.CRM])
-    );
-  }
-
-  if (track === tracks.digital && key === 'metric') {
-    container.append(
-      makeTerms('CTR·전환율 용어 설명', [
-        'CTR: ' + glossary.CTR,
-        '전환율: ' + glossary.conversion
-      ])
-    );
-  }
-
-  if (track === tracks.product && key === 'work') {
-    container.append(
-      makeTerms('PM 용어 설명', [glossary.PM])
-    );
-  }
 }
 
-// PC 및 모바일 비교 화면
+function normalize(value){
 
-function drawMatrix() {
-  const tbody = $('matrix-body');
-  reset(tbody);
-
-  fields.forEach(([label, key]) => {
-    const tr = document.createElement('tr');
-    const th = el('th', '', label);
-    th.scope = 'row';
-    tr.append(th);
-
-    for (const id of ['crm', 'digital', 'product']) {
-      const td = el('td');
-      td.dataset.col = id;
-
-      renderEvidence(td, tracks[id], key);
-
-      tr.append(td);
-    }
-
-    tbody.append(tr);
-  });
-
-  const mobile = $('comparison-mobile');
-  reset(mobile);
-
-  for (const id of ['crm', 'digital', 'product']) {
-    const box = el('article', 'mobile-role');
-    box.dataset.mobileRole = id;
-
-    box.append(
-      el('h4', '', tracks[id].title),
-      el('div', 'case-source', tracks[id].source)
-    );
-
-    const dl = document.createElement('dl');
-
-    fields.forEach(([label, key]) => {
-      const dt = el('dt', '', label);
-      const dd = el('dd');
-
-      renderEvidence(dd, tracks[id], key);
-
-      dl.append(dt, dd);
-    });
-
-    box.append(dl);
-    mobile.append(box);
-  }
-}
-
-// 내부 자료 연결
-
-function makeLink(targetId, label) {
-  const a = el('a', 'link', label);
-
-  a.href = '#' + targetId;
-
-  a.addEventListener('click', () => {
-    if (targetId.startsWith('J')) {
-      setJobFilter('all');
-    }
-  });
-
-  return a;
-}
-
-// PM형 관련 NCS 정보
-
-function updateRelatedNcs() {
-  const box = $('related-ncs');
-
-  const show =
-    currentTrack === 'product' &&
-    relatedNcsItem !== null;
-
-  box.hidden = !show;
-
-  if (!show) return;
-
-  $('related-ncs-title').textContent =
-    relatedNcsItem.title || '신상품 기획';
-
-  const levels = relatedNcsItem.levels || [];
-
-  $('related-ncs-text').textContent =
-    (levels.length ? 'NCS 수준 ' + levels.join(', ') + ' · ' : '') +
-    '제품 기획과 관련된 능력단위로, 제품 마케팅 사례의 참고 자료로 활용할 수 있습니다.';
-}
-
-// 직무 선택
-
-function selectTrack(id, scroll = false) {
-  const t = tracks[id];
-
-  if (!t) return;
-
-  currentTrack = id;
-
-  document.querySelectorAll('[data-track]').forEach(b => {
-    b.setAttribute('aria-pressed', String(b.dataset.track === id));
-  });
-
-  document.querySelectorAll('[data-col]').forEach(n => {
-    n.classList.toggle('active-col', n.dataset.col === id);
-  });
-
-  document.querySelectorAll('[data-mobile-role]').forEach(n => {
-    n.classList.toggle('active', n.dataset.mobileRole === id);
-  });
-
-  document.querySelectorAll('[data-interview]').forEach(n => {
-    n.classList.toggle('is-current', n.dataset.interview === id);
-  });
-
-  $('track-title').textContent = t.title;
-  $('track-description').textContent = t.desc;
-  $('track-label').textContent = t.tag;
-
-  $('detail-job-title').textContent = t.jobTitle;
-  $('detail-job').textContent = t.job;
-
-  $('detail-interview-title').textContent = t.interviewTitle;
-  $('detail-interview').textContent = t.interview;
-
-  const jl = $('detail-job-link');
-
-  jl.href = '#' + (t.jobId || 'jobs');
-
-  jl.textContent = t.jobId
-    ? '채용공고 사례 보기 ↗'
-    : '다른 마케팅 채용공고 사례 보기 ↗';
-
-  $('detail-interview-link').href = '#' + t.interviewId;
-
-  $('insight-intro').textContent =
-    t.title + ' · 업무의 특징과 취업 준비 방향';
-
-  $('insight-fact').textContent = t.fact;
-  $('insight-voice-title').textContent = t.voiceTitle;
-  $('insight-voice').textContent = t.voice;
-  $('insight-suggestion').textContent = t.suggestion;
-
-  const points = $('insight-points');
-  reset(points);
-
-  t.points.forEach(x => {
-    points.append(el('li', '', x));
-  });
-
-  const links = $('insight-links');
-  reset(links);
-
-  links.append(makeLink(t.interviewId, '현직자 원문 근거 ↗'));
-
-  if (t.jobId) {
-    links.append(makeLink(t.jobId, '채용공고 근거 ↗'));
+  if(value === null || value === undefined){
+    return '';
   }
 
-  updateRelatedNcs();
+  return String(value).trim().replace(/\s+/g,' ');
 
-  if (scroll) {
-    $('comparison').scrollIntoView({
-      behavior:'smooth',
-      block:'start'
-    });
-  }
 }
 
-// 채용공고 마감일 및 필터
+function compact(value){
 
-const localDate = ymd => {
-  const [y, m, d] = ymd.split('-').map(Number);
-  return new Date(y, m - 1, d);
+  return normalize(value).replace(/\s+/g,'');
+
+}
+
+// =====================================
+// 출처 링크 연결
+// =====================================
+
+const sourceNames = {
+
+  I1:'I1 · 삼성전자 반도체 · 2019',
+
+  I2:'I2 · KGC인삼공사 · 2020',
+
+  I3:'I3 · 엑티브아이티 · 2025',
+
+  J1:'J1 · D&O 채용공고 · 2026',
+
+  J2:'J2 · LG생활건강 채용공고 · 2026'
+
 };
 
-function deadlinePassed(node) {
-  const n = new Date();
+function initializeReferences(){
 
-  const today = new Date(
-    n.getFullYear(),
-    n.getMonth(),
-    n.getDate()
-  );
+  document.querySelectorAll('[data-ref]').forEach(link => {
 
-  return today > localDate(node.dataset.deadline);
+    const id = link.dataset.ref;
+
+    const source = $(id);
+
+    if(!source) return;
+
+    const original =
+      source.querySelector('.source-original');
+
+    if(!original) return;
+
+    link.href = original.href;
+
+    link.target = '_blank';
+
+    link.rel = 'noopener noreferrer';
+
+    link.title = sourceNames[id] || '원문 보기';
+
+    if(link.classList.contains('ref')){
+
+      link.textContent =
+        (sourceNames[id] || id) + ' ↗';
+
+    }
+
+  });
+
 }
 
-function setJobFilter(mode) {
-  currentFilter = mode;
+// =====================================
+// 채용공고 필터 및 마감일
+// =====================================
 
-  let shown = 0;
+function koreaToday(){
 
-  document.querySelectorAll('.job').forEach(job => {
+  const parts = new Intl.DateTimeFormat('en-CA',{
 
-    const match =
+    timeZone:'Asia/Seoul',
+
+    year:'numeric',
+
+    month:'2-digit',
+
+    day:'2-digit'
+
+  }).formatToParts(new Date());
+
+  const get = type =>
+    parts.find(p => p.type === type)?.value || '';
+
+  return get('year') + '-' +
+    get('month') + '-' + get('day');
+
+}
+
+function deadlinePassed(card){
+
+  return koreaToday() > card.dataset.deadline;
+
+}
+
+function refreshJobDeadlines(){
+
+  document.querySelectorAll('.job-card').forEach(card => {
+
+    const badge =
+      card.querySelector('[data-deadline-status]');
+
+    if(!badge) return;
+
+    const passed = deadlinePassed(card);
+
+    badge.textContent = passed
+      ? '접수 마감'
+      : '마감일 미도래';
+
+    badge.className = passed
+      ? 'badge gray'
+      : 'badge orange';
+
+  });
+
+}
+
+function filterJobs(mode){
+
+  let count = 0;
+
+  document.querySelectorAll('.job-card').forEach(card => {
+
+    const show =
+
       mode === 'all' ||
-      (mode === 'entry' && job.dataset.career === 'entry') ||
-      (mode === 'notpast' && !deadlinePassed(job));
 
-    job.hidden = !match;
+      card.dataset.career === mode ||
 
-    if (match) shown++;
+      (mode === 'notpast' && !deadlinePassed(card));
+
+    card.hidden = !show;
+
+    if(show) count++;
+
   });
 
-  document.querySelectorAll('[data-filter]').forEach(b => {
-    b.setAttribute('aria-pressed', String(b.dataset.filter === mode));
+  document.querySelectorAll('[data-job-filter]').forEach(button => {
+
+    button.setAttribute(
+
+      'aria-pressed',
+
+      String(button.dataset.jobFilter === mode)
+
+    );
+
   });
 
-  $('job-empty').hidden = shown !== 0;
+  $('job-empty').hidden = count !== 0;
+
 }
 
-function refreshDeadlines() {
-  let openByDate = 0;
+// =====================================
+// NCS 데이터 통합
+// =====================================
 
-  const jobs = document.querySelectorAll('.job');
+function getLevels(row){
 
-  jobs.forEach(job => {
-    const expired = deadlinePassed(job);
-
-    const badge = job.querySelector('[data-deadline-badge]');
-
-    badge.textContent = expired
-      ? '접수 마감일 경과'
-      : '접수 마감일 미도래';
-
-    badge.className = 'badge ' + (expired ? 'gray' : 'orange');
-
-    if (!expired) openByDate++;
-  });
-
-  $('job-stat').textContent =
-    jobs.length + '건 · 마감일 미도래 ' + openByDate + '건';
-
-  $('job-active-label').textContent =
-    '마감일 미도래 ' + openByDate + '건';
-
-  setJobFilter(currentFilter);
-}
-
-// 검색 기능
-
-function handleSearch(e) {
-  e.preventDefault();
-
-  const term = $('search-input')
-    .value.trim().toLowerCase().replace(/\s+/g, '');
-
-  const status = $('search-status');
-
-  if (!term) {
-    status.textContent = '검색할 직무를 입력해 주세요.';
-    return;
-  }
-
-  if (['마케팅', '마케터', 'marketing'].includes(term)) {
-    status.textContent = '마케팅 직무의 세 가지 사례를 비교합니다.';
-
-    $('comparison').scrollIntoView({
-      behavior:'smooth',
-      block:'start'
-    });
-
-    return;
-  }
-
-  const keywords = {
-    crm:[
-      'crm','고객관리','고객마케팅','crm·고객',
-      'crm마케팅','crm·고객마케팅'
-    ],
-
-    digital:[
-      '디지털','디지털마케팅','콘텐츠','콘텐츠마케팅',
-      '디지털·콘텐츠','디지털·콘텐츠마케팅','광고','광고마케팅'
-    ],
-
-    product:[
-      'pm','제품기획','제품마케팅',
-      '제품마케팅(pm형)','일정관리','프로젝트관리'
-    ]
-  };
-
-  for (const [id, words] of Object.entries(keywords)) {
-    if (words.includes(term)) {
-      status.textContent =
-        tracks[id].title + ' 사례를 보여드립니다.';
-
-      selectTrack(id, true);
-      return;
-    }
-  }
-
-  if (['반도체','삼성전자'].includes(term)) {
-    status.textContent =
-      '삼성전자 반도체 사례는 제품 마케팅(PM형)에서 확인할 수 있습니다.';
-    return;
-  }
-
-  if (['데이터분석','분석력'].includes(term)) {
-    status.textContent =
-      '데이터 분석은 여러 마케팅 직무에서 활용됩니다. 아래 직무 유형별 사례를 비교해 보세요.';
-    return;
-  }
-
-  status.textContent =
-    '현재 제공하는 직무는 마케팅입니다. 아래 직무 유형을 선택해 주세요.';
-}
-
-// ==================================================
-// 최종 수정: NCS 결과 정리 및 통합 표시
-// ==================================================
-
-function normalizeText(value) {
-  if (value === undefined || value === null) return '';
-  return String(value).trim().replace(/\s+/g, ' ');
-}
-
-function compactText(value) {
-  return normalizeText(value).replace(/\s+/g, '');
-}
-
-// API가 수준을 배열 또는 단일 값으로 반환하는 경우 모두 처리
-
-function getNcsLevels(row) {
   const raw = row.levels ?? row.level;
 
-  if (raw === undefined || raw === null || raw === '') {
+  if(raw === null || raw === undefined || raw === ''){
     return [];
   }
 
@@ -1515,544 +3471,1007 @@ function getNcsLevels(row) {
     : String(raw).split(/[,;/·]+/);
 
   return [...new Set(
-    values.map(value => normalizeText(value)).filter(Boolean)
+
+    values.map(normalize).filter(Boolean)
+
   )];
+
 }
 
-function sortNcsLevels(levels) {
-  return [...new Set(levels)].sort((a, b) => {
+function sortLevels(levels){
 
-    const aNum = Number(a);
-    const bNum = Number(b);
+  return [...new Set(levels)].sort((a,b) => {
 
-    if (Number.isFinite(aNum) && Number.isFinite(bNum)) {
-      return aNum - bNum;
+    const x = Number(a);
+    const y = Number(b);
+
+    if(Number.isFinite(x) && Number.isFinite(y)){
+      return x-y;
     }
 
-    return a.localeCompare(b, 'ko');
+    return a.localeCompare(b,'ko');
+
   });
+
 }
 
-// 같은 제목과 직무분류를 하나의 표시 카드로 묶음.
-// 서로 다른 수준과 설명은 삭제하지 않고 유지함.
-
-function groupNcsRows(items) {
+function groupNcs(items){
 
   const groups = new Map();
+
   const seen = new Set();
 
-  for (const r of items) {
+  for(const row of items){
 
-    if (!r || typeof r !== 'object') continue;
+    if(!row || typeof row !== 'object'){
+      continue;
+    }
 
-    const title = normalizeText(r.title);
-    const category = normalizeText(r.category);
-    const levels = sortNcsLevels(getNcsLevels(r));
+    const title = normalize(row.title);
 
-    const dutyDefinition = normalizeText(r.dutyDefinition);
-    const competencyDefinition = normalizeText(r.competencyDefinition);
-    const description = normalizeText(r.description);
+    const category = normalize(row.category);
 
-    // 완전히 동일한 API 응답만 제거
+    const levels = sortLevels(getLevels(row));
+
+    const duty = normalize(row.dutyDefinition);
+
+    const competency =
+      normalize(row.competencyDefinition);
+
+    const description =
+      normalize(row.description);
+
     const signature = JSON.stringify([
+
       title,
       category,
       levels,
-      dutyDefinition,
-      competencyDefinition,
+      duty,
+      competency,
       description
+
     ]);
 
-    if (seen.has(signature)) continue;
+    if(seen.has(signature)){
+      continue;
+    }
 
     seen.add(signature);
 
-    // 동일 제목·직무분류를 시각적으로 통합
-    // 제목이나 분류가 없는 경우 다른 항목과 임의로 합치지 않음
+    const key = title && category
 
-    const groupKey = title && category
       ? JSON.stringify([
-          compactText(title),
-          compactText(category)
+          compact(title),
+          compact(category)
         ])
+
       : signature;
 
-    if (!groups.has(groupKey)) {
-      groups.set(groupKey, {
-        title:title || category || '직무정보 항목',
-        category:category,
+    if(!groups.has(key)){
+
+      groups.set(key,{
+
+        title:title || category || '직무정보',
+
+        category,
+
         levels:[],
-        definitions:[],
-        count:0
+
+        definitions:[]
+
       });
+
     }
 
-    const group = groups.get(groupKey);
+    const group = groups.get(key);
 
-    group.count++;
+    group.levels = sortLevels([
 
-    group.levels = sortNcsLevels([
       ...group.levels,
+
       ...levels
+
     ]);
 
-    const addDefinition = (label, value) => {
+    function addDefinition(label,text){
 
-      if (!value) return;
+      if(!text) return;
 
       const existing = group.definitions.find(
-        d => d.label === label && d.text === value
+
+        item =>
+          item.label === label &&
+          item.text === text
+
       );
 
-      if (existing) {
-        existing.levels = sortNcsLevels([
+      if(existing){
+
+        existing.levels = sortLevels([
+
           ...existing.levels,
+
           ...levels
+
         ]);
-      } else {
+
+      }else{
+
         group.definitions.push({
-          label:label,
-          text:value,
+
+          label,
+
+          text,
+
           levels:[...levels]
+
         });
+
       }
-    };
+
+    }
 
     const categoryLabel = category
+
       ? '직무분류(' + category + ') 정의'
+
       : '직무분류 정의';
 
-    if (dutyDefinition) {
-      addDefinition(categoryLabel, dutyDefinition);
-    }
+    addDefinition(categoryLabel,duty);
 
-    if (competencyDefinition) {
-      addDefinition('능력단위 정의', competencyDefinition);
-    }
+    addDefinition('능력단위 정의',competency);
 
-    // 현재 확인된 신상품 기획 결과의 설명은
-    // 마케팅전략기획이라는 상위 직무분류의 정의임.
-    // 그 외 결과는 정의 종류를 임의로 단정하지 않음.
+    if(
 
-    if (
       description &&
-      description !== dutyDefinition &&
-      description !== competencyDefinition
-    ) {
 
-      const isKnownMarketingDefinition =
-        compactText(title) === '신상품기획' &&
-        compactText(category) === '마케팅전략기획';
+      description !== duty &&
+
+      description !== competency
+
+    ){
+
+      const knownMarketingDefinition =
+
+        compact(title) === '신상품기획' &&
+
+        compact(category) === '마케팅전략기획';
 
       addDefinition(
-        isKnownMarketingDefinition
+
+        knownMarketingDefinition
+
           ? '직무분류(마케팅전략기획) 정의'
+
           : 'API 제공 설명',
+
         description
+
       );
+
     }
+
   }
 
   return {
+
     groups:[...groups.values()],
-    resultCount:seen.size
+
+    count:seen.size
+
   };
+
 }
 
-// NCS 화면 표시
+// =====================================
+// NCS 화면 출력
+// =====================================
 
-function renderNcs(result) {
+function renderNcs(result, savedAt=null){
 
   const root = $('ncs-list');
 
-  reset(root);
-  relatedNcsItem = null;
+  root.replaceChildren();
 
-  if (!result || result.status !== 'ok') {
+  if(!result || result.status !== 'ok'){
 
-    showMessage(
+    message(
+
       root,
-      'NCS 정보 조회 중 문제가 발생했습니다. 새로고침을 눌러 다시 확인할 수 있습니다.'
+
+      '현재 NCS 정보를 불러오지 못했습니다. 새로고침하거나 NCS 공식 사이트를 이용해 주세요.'
+
     );
 
     $('ncs-status').textContent = '조회 오류';
-    $('ncs-stat').textContent = '조회 오류';
 
-    updateRelatedNcs();
     return;
+
   }
 
   const items = Array.isArray(result.items)
+
     ? result.items
+
     : [];
 
-  const grouped = groupNcsRows(items);
+  const grouped = groupNcs(items);
+
   const groups = grouped.groups;
 
-  // 신상품 기획 항목을 명칭 및 분류에 따라 연결
+  if(!groups.length){
 
-  relatedNcsItem = groups.find(group =>
-    compactText(group.title) === '신상품기획' &&
-    compactText(group.category) === '마케팅전략기획'
-  ) || null;
+    message(root,'관련 NCS 조회 결과가 없습니다.');
 
-  const displayedGroups = groups.slice(0, 5);
-
-  displayedGroups.forEach(group => {
-
-    const card = el('article', 'api-card');
-
-    card.append(
-      el('span', 'badge green', 'NCS API'),
-      el('h3', '', group.title)
-    );
-
-    if (group.category) {
-      const categoryRow = el('div', 'kv');
-
-      categoryRow.append(
-        el('strong', '', '직무분류'),
-        el('span', '', group.category)
-      );
-
-      card.append(categoryRow);
-    }
-
-    if (group.levels.length) {
-
-      const levelRow = el('div', 'kv');
-
-      levelRow.append(
-        el('strong', '', 'NCS 수준')
-      );
-
-      group.levels.forEach(level => {
-        levelRow.append(
-          el('span', 'ncs-level', '수준 ' + level)
-        );
-      });
-
-      card.append(levelRow);
-    }
-
-    // 수준이 다른 동일 명칭 결과의 통합 이유
-
-    if (group.count > 1) {
-
-      const note = group.levels.length > 1
-        ? '동일한 능력단위 명칭과 직무분류로 조회된 수준별 결과를 하나의 카드로 정리했습니다.'
-        : '동일한 능력단위 명칭과 직무분류의 조회 결과를 함께 정리했습니다.';
-
-      card.append(el('div', 'ncs-note', note));
-    }
-
-    // 설명 문장이 다르면 각각 보존하고 관련 수준 표시
-
-    const labelCounts = {};
-
-    group.definitions.forEach(def => {
-      labelCounts[def.label] =
-        (labelCounts[def.label] || 0) + 1;
-    });
-
-    group.definitions.forEach(def => {
-
-      const definition = el('div', 'ncs-definition');
-
-      let label = def.label;
-
-      if (
-        labelCounts[def.label] > 1 &&
-        def.levels.length
-      ) {
-        label += ' · 수준 ' + def.levels.join(', ') + ' 조회 결과';
-      }
-
-      definition.append(
-        el('strong', '', label),
-        el('p', '', def.text)
-      );
-
-      card.append(definition);
-    });
-
-    root.append(card);
-  });
-
-  if (!groups.length) {
-    showMessage(root, '검색된 NCS 항목이 없습니다.');
   }
 
-  $('ncs-status').textContent = '조회 완료';
+  for(const group of groups.slice(0,5)){
 
-  // 실제 조회 건수와 화면에 통합된 카드 수를 구분
+    const card = el('article','api-card');
 
-  $('ncs-stat').textContent =
-    displayedGroups.length + '개 항목 · ' +
-    grouped.resultCount + '건 조회';
+    card.append(
 
-  updateRelatedNcs();
+      el('span','badge green','NCS 공식정보'),
+
+      el('h3','',group.title)
+
+    );
+
+    if(group.category){
+
+      const row = el('div','kv');
+
+      row.append(
+
+        el('strong','','직무분류'),
+
+        el('span','',group.category)
+
+      );
+
+      card.append(row);
+
+    }
+
+    if(group.levels.length){
+
+      const row = el('div','kv');
+
+      row.append(el('strong','','NCS 수준'));
+
+      group.levels.forEach(level => {
+
+        row.append(
+
+          el('span','ncs-level','수준 ' + level)
+
+        );
+
+      });
+
+      card.append(row);
+
+    }
+
+    // 같은 종류의 정의가 여러 문구로 반환되면
+    // 하나의 정의 그룹 안에서 함께 제공
+
+    const byLabel = new Map();
+
+    group.definitions.forEach(definition => {
+
+      if(!byLabel.has(definition.label)){
+
+        byLabel.set(definition.label,[]);
+
+      }
+
+      byLabel.get(definition.label).push(definition);
+
+    });
+
+    for(const [label, definitions] of byLabel){
+
+      const box = el('div','ncs-definition');
+
+      box.append(el('strong','',label));
+
+      if(definitions.length === 1){
+
+        box.append(
+
+          el('p','',definitions[0].text)
+
+        );
+
+      }else{
+
+        box.append(
+
+          el('p','',definitions[0].text)
+
+        );
+
+        const detail = el('details');
+
+        detail.append(
+
+          el('summary','','다른 조회 문구 보기')
+
+        );
+
+        const body = el('div','details-body');
+
+        body.append(
+
+          el(
+
+            'p',
+
+            'note',
+
+            '동일한 정의에 대해 다른 문구로 조회된 결과입니다.'
+
+          )
+
+        );
+
+        definitions.slice(1).forEach(definition => {
+
+          body.append(
+
+            el('p','',definition.text)
+
+          );
+
+          if(definition.levels.length){
+
+            body.append(
+
+              el(
+
+                'div',
+
+                'meta',
+
+                '수준 ' +
+
+                definition.levels.join(', ') +
+
+                ' 조회 결과'
+
+              )
+
+            );
+
+          }
+
+        });
+
+        detail.append(body);
+
+        box.append(detail);
+
+      }
+
+      card.append(box);
+
+    }
+
+    root.append(card);
+
+  }
+
+  $('ncs-status').textContent = savedAt
+
+    ? '저장된 조회 결과 · ' + formatSavedDate(savedAt)
+
+    : '조회 완료 · ' + groups.length + '개 항목';
+
 }
 
-// 유튜브 링크 확인
+// =====================================
+// 유튜브 영상 검색 결과
+// =====================================
 
-function safeYoutubeLink(raw) {
-  try {
+function safeYoutubeLink(raw){
+
+  try{
 
     const url = new URL(raw);
 
-    if (url.protocol !== 'https:') return null;
+    if(url.protocol !== 'https:'){
+      return null;
+    }
 
-    return ['youtube.com', 'youtu.be'].some(d =>
-      url.hostname === d ||
-      url.hostname.endsWith('.' + d)
-    ) ? url.href : null;
+    const allowed = ['youtube.com','youtu.be'].some(domain =>
 
-  } catch {
+      url.hostname === domain ||
+
+      url.hostname.endsWith('.' + domain)
+
+    );
+
+    return allowed ? url.href : null;
+
+  }catch{
+
     return null;
+
   }
+
 }
 
-// 직무 영상 우선 정렬
-
-function videoScore(video) {
+function videoScore(video){
 
   const title = String(video.title || '');
+
   const desc = String(video.description || '');
-  const combined = title + ' ' + desc;
 
-  let s = 0;
+  const text = title + ' ' + desc;
 
-  for (const word of [
+  let score = 0;
+
+  for(const word of [
+
     '현직자',
+
     '브이로그',
+
     '직무인터뷰',
+
     '직무 인터뷰',
-    '하루일과',
+
     '하루 일과',
+
+    '하루일과',
+
     '하는 일',
+
     '하는일',
-    '실무',
-    '담당업무'
-  ]) {
-    if (combined.includes(word)) s += 2;
+
+    '담당업무',
+
+    '실무'
+
+  ]){
+
+    if(text.includes(word)){
+      score += 2;
+    }
+
   }
 
-  for (const word of [
-    '마케터','마케팅팀','마케팅 업무','직무'
-  ]) {
-    if (combined.includes(word)) s++;
+  for(const word of [
+
+    '마케터',
+
+    '마케팅팀',
+
+    '마케팅 업무',
+
+    '직무'
+
+  ]){
+
+    if(text.includes(word)){
+      score++;
+    }
+
   }
 
-  for (const word of [
-    '면접','자소서','자기소개서','합격',
-    '면접팁','면접 꿀팁','채용 설명회'
-  ]) {
-    if (title.includes(word)) s -= 5;
+  for(const word of [
+
+    '면접',
+
+    '자소서',
+
+    '자기소개서',
+
+    '합격',
+
+    '면접팁',
+
+    '채용 설명회'
+
+  ]){
+
+    if(title.includes(word)){
+      score -= 5;
+    }
+
   }
 
-  return s;
+  return score;
+
 }
 
-// 유튜브 결과 표시
-
-function renderYoutube(result) {
+function renderYoutube(result,savedAt=null){
 
   const root = $('youtube-list');
-  reset(root);
 
-  if (!result || result.status !== 'ok') {
+  root.replaceChildren();
 
-    showMessage(
+  if(!result || result.status !== 'ok'){
+
+    message(
+
       root,
-      '영상을 불러오지 못했습니다. 새로고침을 눌러 다시 확인할 수 있습니다.'
+
+      '관련 영상을 불러오지 못했습니다. 새로고침해 주세요.'
+
     );
 
     $('youtube-status').textContent = '조회 오류';
-    $('youtube-stat').textContent = '조회 오류';
 
     return;
+
   }
 
   const items = Array.isArray(result.items)
+
     ? result.items
+
     : [];
 
   const videos = items
-    .filter(video => video && typeof video === 'object')
-    .map((video, index) => ({
+
+    .filter(video =>
+      video && typeof video === 'object'
+    )
+
+    .map((video,index) => ({
+
       ...video,
+
       link:safeYoutubeLink(video.url),
+
       score:videoScore(video),
+
       index
+
     }))
-    .filter(v => v.link && v.score > 0)
-    .sort((a,b) => b.score - a.score || a.index - b.index)
+
+    .filter(video => video.link && video.score > 0)
+
+    .sort((a,b) =>
+
+      b.score-a.score || a.index-b.index
+
+    )
+
     .slice(0,4);
 
-  for (const v of videos) {
+  for(const video of videos){
 
-    const card = el('article', 'api-card');
+    const card = el('article','api-card');
 
     card.append(
-      el('span', 'badge', '유튜브 직무 영상'),
-      el('h3', '', v.title || '직무 영상'),
-      el('div', 'meta', v.channel || '유튜브')
+
+      el('span','badge','관련 직무 영상'),
+
+      el('h3','',video.title || '직무 영상'),
+
+      el('div','meta',video.channel || '유튜브')
+
     );
 
-    if (v.description) {
+    if(video.description){
+
       card.append(
-        el('p', '', String(v.description).slice(0,200))
+
+        el(
+
+          'p',
+
+          '',
+
+          String(video.description).slice(0,200)
+
+        )
+
       );
+
     }
 
-    const a = el('a', 'link', '영상 원문 보기 ↗');
+    const link = el('a','btn','영상 보기 ↗');
 
-    a.href = v.link;
-    a.target = '_blank';
-    a.rel = 'noopener noreferrer';
+    link.href = video.link;
 
-    card.append(a);
+    link.target = '_blank';
+
+    link.rel = 'noopener noreferrer';
+
+    card.append(link);
+
     root.append(card);
+
   }
 
-  if (!videos.length) {
-    showMessage(
+  if(!videos.length){
+
+    message(
+
       root,
-      '현재 검색 결과 중 업무를 직접 다루는 영상이 없습니다.'
+
+      '현재 조회 결과에 관련 직무 영상이 없습니다.'
+
     );
+
   }
 
-  $('youtube-status').textContent = '조회 완료';
-  $('youtube-stat').textContent = videos.length + '건 표시';
+  $('youtube-status').textContent = savedAt
+
+    ? '저장된 조회 결과 · ' + formatSavedDate(savedAt)
+
+    : '관련 영상 ' + videos.length + '건';
+
 }
 
-// 기존 API 연동
+// =====================================
+// API 조회 결과 저장
+// =====================================
+
+// 실제 조회에 성공한 데이터만 브라우저에 저장합니다.
+// 다음 조회 실패 시 저장된 결과를 날짜와 함께 표시합니다.
+
+function readCache(){
+
+  try{
+
+    const raw = localStorage.getItem(CACHE_KEY);
+
+    if(!raw) return {};
+
+    const data = JSON.parse(raw);
+
+    return data && typeof data === 'object'
+
+      ? data
+
+      : {};
+
+  }catch{
+
+    return {};
+
+  }
+
+}
+
+function writeCache(cache){
+
+  try{
+
+    localStorage.setItem(
+
+      CACHE_KEY,
+
+      JSON.stringify(cache)
+
+    );
+
+  }catch{
+
+    // 저장 기능을 사용할 수 없어도
+    // 일반 API 조회는 계속 작동합니다.
+
+  }
+
+}
+
+function formatSavedDate(value){
+
+  try{
+
+    return new Date(value).toLocaleString('ko-KR',{
+
+      timeZone:'Asia/Seoul',
+
+      year:'numeric',
+
+      month:'2-digit',
+
+      day:'2-digit',
+
+      hour:'2-digit',
+
+      minute:'2-digit'
+
+    });
+
+  }catch{
+
+    return '이전 조회';
+
+  }
+
+}
+
+function validResult(result){
+
+  return Boolean(
+
+    result &&
+
+    result.status === 'ok' &&
+
+    Array.isArray(result.items)
+
+  );
+
+}
+
+function renderResult(type,result,cache){
+
+  const renderer = type === 'ncs'
+
+    ? renderNcs
+
+    : renderYoutube;
+
+  if(validResult(result)){
+
+    renderer(result);
+
+    cache[type] = {
+
+      result,
+
+      savedAt:new Date().toISOString()
+
+    };
+
+    return;
+
+  }
+
+  if(validResult(cache[type]?.result)){
+
+    renderer(
+
+      cache[type].result,
+
+      cache[type].savedAt
+
+    );
+
+    return;
+
+  }
+
+  renderer(null);
+
+}
+
+// =====================================
+// 기존 Cloudflare Worker API 연동
+// =====================================
 
 let loading = false;
 
-async function loadApi() {
+async function loadApi(){
 
-  if (loading) return;
+  if(loading) return;
 
   loading = true;
-  $('reload-api').disabled = true;
+
+  const buttons =
+    document.querySelectorAll('[data-reload-api]');
+
+  buttons.forEach(button => {
+
+    button.disabled = true;
+
+  });
 
   $('ncs-status').textContent = '조회 중';
+
   $('youtube-status').textContent = '조회 중';
 
-  const ctrl = new AbortController();
+  const cache = readCache();
+
+  const controller = new AbortController();
 
   const timer = setTimeout(
-    () => ctrl.abort(),
+
+    () => controller.abort(),
+
     12000
+
   );
 
-  try {
+  try{
 
-    const url = new URL('/api/search', API_ROOT);
+    const url = new URL('/api/search',API_ROOT);
 
     url.searchParams.set('q','마케팅');
+
     url.searchParams.set('sources','ncs,youtube');
 
-    const response = await fetch(url, {
-      headers:{Accept:'application/json'},
-      signal:ctrl.signal
+    const response = await fetch(url,{
+
+      headers:{
+
+        Accept:'application/json'
+
+      },
+
+      signal:controller.signal
+
     });
 
-    if (!response.ok) {
+    if(!response.ok){
+
       throw new Error('HTTP ' + response.status);
+
     }
 
     const data = await response.json();
 
-    if (!data.ok) {
-      throw new Error('Invalid API response');
+    if(!data.ok){
+
+      throw new Error('API response error');
+
     }
 
-    try {
-      renderNcs(data.results?.ncs);
-    } catch (error) {
-      console.error('NCS rendering:', error);
-      renderNcs(null);
-    }
+    // 각각의 서비스는 독립적으로 결과 표시
 
-    try {
-      renderYoutube(data.results?.youtube);
-    } catch (error) {
-      console.error('YouTube rendering:', error);
-      renderYoutube(null);
-    }
+    for(const type of ['ncs','youtube']){
 
-  } catch (error) {
+      try{
 
-    console.error('직무한눈에 API:', error);
+        renderResult(
 
-    renderNcs(null);
-    renderYoutube(null);
+          type,
 
-  } finally {
+          data.results?.[type],
 
-    clearTimeout(timer);
-    loading = false;
-    $('reload-api').disabled = false;
-  }
-}
+          cache
 
-// 페이지 초기화
+        );
 
-function initialize() {
+      }catch(error){
 
-  $('crm-advice').textContent = crmAdvice;
-  $('digital-advice').textContent = digitalAdvice;
+        console.error(type,error);
 
-  document.querySelectorAll('[data-track]').forEach(b => {
+        renderResult(type,null,cache);
 
-    b.addEventListener('click', () => {
-
-      const fromHero = Boolean(b.closest('.pills'));
-
-      if (fromHero) {
-        $('search-status').textContent =
-          tracks[b.dataset.track].title + ' 사례를 보여드립니다.';
       }
 
-      selectTrack(b.dataset.track, fromHero);
+    }
+
+    writeCache(cache);
+
+  }catch(error){
+
+    console.error('JOB INSIGHT API:',error);
+
+    renderResult('ncs',null,cache);
+
+    renderResult('youtube',null,cache);
+
+  }finally{
+
+    clearTimeout(timer);
+
+    loading = false;
+
+    buttons.forEach(button => {
+
+      button.disabled = false;
+
     });
+
+  }
+
+}
+
+// =====================================
+// 스크롤에 따른 탐색 메뉴 표시
+// =====================================
+
+function updateNav(){
+
+  const ids = [
+
+    'overview',
+
+    'practice',
+
+    'skills',
+
+    'career',
+
+    'sources'
+
+  ];
+
+  let current = '';
+
+  for(const id of ids){
+
+    const section = $(id);
+
+    if(section.getBoundingClientRect().top <= 160){
+
+      current = id;
+
+    }
+
+  }
+
+  document.querySelectorAll('[data-nav]').forEach(link => {
+
+    const active = link.dataset.nav === current;
+
+    link.classList.toggle('active',active);
+
+    if(active){
+
+      link.setAttribute('aria-current','location');
+
+    }else{
+
+      link.removeAttribute('aria-current');
+
+    }
+
   });
 
-  document.querySelectorAll('[data-pick-track]').forEach(b => {
+}
 
-    b.addEventListener('click', () => {
-      selectTrack(b.dataset.pickTrack, true);
+// =====================================
+// 페이지 초기화
+// =====================================
+
+function initialize(){
+
+  // 외부 API와 관계없이 기본 정보는 즉시 표시
+
+  initializeReferences();
+
+  refreshJobDeadlines();
+
+  filterJobs('all');
+
+  document.querySelectorAll('[data-job-filter]').forEach(button => {
+
+    button.addEventListener('click',() => {
+
+      filterJobs(button.dataset.jobFilter);
+
     });
+
   });
 
-  document.querySelectorAll('[data-filter]').forEach(b => {
+  document.querySelectorAll('[data-reload-api]').forEach(button => {
 
-    b.addEventListener('click', () => {
-      setJobFilter(b.dataset.filter);
-    });
+    button.addEventListener('click',loadApi);
+
   });
 
-  $('detail-job-link').addEventListener('click', () => {
-    setJobFilter('all');
-  });
+  window.addEventListener(
 
-  $('search-form').addEventListener('submit', handleSearch);
+    'scroll',
 
-  $('reload-api').addEventListener('click', loadApi);
+    updateNav,
 
-  // 기본 웹사이트 기능을 먼저 실행한 후 API 조회
+    {passive:true}
 
-  drawMatrix();
-  selectTrack('crm');
-  refreshDeadlines();
+  );
+
+  updateNav();
+
+  // 외부 데이터는 마지막에 조회
+
   loadApi();
+
 }
 
 initialize();
 
 </script>
+
 </body>
 </html>
